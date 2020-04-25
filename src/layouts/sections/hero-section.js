@@ -21,7 +21,7 @@ function HeroSection(props) {
         <Flex
           sx={{
             height: "100%",
-            width: ["100%", null, "60%", "50%"],
+            width: ["100%", null, "60%", "55%"],
             m: "0 auto",
             px: [4, 5],
             alignItems: ["flex-start", null, "flex-start"],
@@ -49,13 +49,14 @@ function HeroSection(props) {
         </Flex>
         <Flex
           sx={{
-            width: ["100%", null, "40%", "50%"],
+            width: ["100%", null, "40%", "45%"],
             height: "100%",
             top: 0,
             left: 0,
             right: 0,
             bottom: 0,
             margin: "auto",
+            pt: [5, null, 0],
             justifyContent: "flex-end",
           }}
         >
@@ -66,6 +67,7 @@ function HeroSection(props) {
               alt={alt || ""}
               sx={{
                 width: "100%",
+                height: "100%",
                 objectFit: ["contain"],
                 objectPosition: ["top", null, "right center"],
               }}

@@ -5,13 +5,12 @@ const colors = {
   white: "#ffffff",
   cream: "#f4f0eb",
   yellow: "#F9ED96",
-  green: "#CAF16F",
-  orange: "#F0B557",
+  green: "#DDFE8F",
+  orange: "#F6D196",
   purple: "#CEC4F5",
-  red: "#F0A0A9",
+  red: "#F9B5B1",
   blue: "#A5E4F2",
-  cyan: "#7EDDB7",
-  brown: "#B4A8A1",
+  cyan: "#8DEBC5",
 };
 
 // Typography
@@ -81,7 +80,7 @@ export default {
   text: {
     heading1: {
       ...headingStyles,
-      fontSize: [5, null, null, 7],
+      fontSize: [5, null, null, 6],
     },
     heading2: {
       ...headingStyles,

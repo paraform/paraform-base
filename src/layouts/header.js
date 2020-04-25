@@ -6,7 +6,6 @@ const modes = [
   "cream",
   "yellow",
   "green",
-  "brown",
   "orange",
   "cyan",
   "red",
@@ -29,6 +28,7 @@ const Header = () => {
         position: "absolute",
         width: "100%",
         zIndex: "header",
+        pt: [0, null, 4],
       }}
     >
       <Flex
@@ -36,14 +36,13 @@ const Header = () => {
           width: "100%",
           px: [4, 5],
           py: 4,
-          height: [80, 100],
           maxWidth: "1200px",
           margin: "0 auto",
           alignItems: "left",
           justifyContent: "space-between",
         }}
       >
-        <Box pl={2}>
+        <Box sx={{ height: [50, null, 70], pl: 2 }}>
           <Logo fill="white" />
         </Box>
         <IconButton
@@ -54,6 +53,7 @@ const Header = () => {
             border: 1,
             borderColor: "background",
             bg: "black",
+            alignSelf: "center",
             color: "background",
             "&:focus": {
               outline: "none",
