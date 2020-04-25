@@ -1,0 +1,16 @@
+<!-- favicon.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
+  <style>
+    .main{fill:#000000}
+      .second{fill:#282828}
+      .third{fill:#121212}
+    @media (prefers-color-scheme: dark) {
+      .main{fill:#ffffff}
+      .second{fill:#d8d8d8}
+      .third{fill:#f2f2f2}
+    }
+  </style>
+  <path class="main" d="M22.4 7.8h28.1v28.1H22.4zM22.4 64h28.1v28.1H22.4z"/>
+  <path class="second" d="M50.5 64L22.4 35.9h28.1L78.6 64z"/>
+  <path class="third" d="M78.6 35.9L50.5 7.8v28.1L78.6 64z"/>
+</svg>
