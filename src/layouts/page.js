@@ -1,7 +1,10 @@
+/** @jsx jsx */
+import { jsx, Box } from "theme-ui";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Head from "next/head";
 import * as sections from "./sections";
+import Header from "./header";
 
 const modelToViewName = (modelName) =>
   modelName.replace(/^([a-z])/, (first) => first.toUpperCase());
@@ -14,10 +17,11 @@ export default function Page({ data }) {
   console.log(data);
   return (
     <>
+      <Header />
       {router.isFallback ? (
         <p>Loading…</p>
       ) : (
-        <>
+        <Box>
           <Head>
             <title>{data.title} | Paraform</title>
             <meta name="description" content={data.description} />
@@ -34,7 +38,7 @@ export default function Page({ data }) {
               );
             }
           })}
-        </>
+        </Box>
       )}
     </>
   );
