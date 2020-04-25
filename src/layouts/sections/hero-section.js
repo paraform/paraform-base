@@ -2,7 +2,7 @@
 import { jsx, Box, Flex, Heading } from "theme-ui";
 import { RichText } from "../../components";
 
-function HeroSection(props) {
+function Section(props) {
   const { heading, subheading, image, alt } = props;
   return (
     <Flex bg="background">
@@ -13,7 +13,7 @@ function HeroSection(props) {
           px: [2, 0],
           position: "relative",
           height: ["auto", null, "100vh"],
-          //   maxHeight: ["none", null, "700px"],
+          maxHeight: ["none", null, "700px"],
           width: "100%",
           flexDirection: ["column", null, "row"],
         }}
@@ -79,4 +79,4 @@ function HeroSection(props) {
   );
 }
 
-export default HeroSection;
+export default Section;

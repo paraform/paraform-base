@@ -8,10 +8,10 @@ import schemaTypes from "all:part:@sanity/base/schema-type";
 import { page } from "./documents";
 
 // Object types
-import { simpleText, embedHtml } from "./objects";
+import { simpleText, embedHtml, feature } from "./objects";
 
 // Sections
-import { heroSection } from "./sections";
+import { heroSection, featureSection } from "./sections";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -22,8 +22,10 @@ export default createSchema({
     //Objects
     simpleText,
     embedHtml,
+    feature,
     //Sections
     heroSection,
+    featureSection,
     //Documents
     page,
   ]),

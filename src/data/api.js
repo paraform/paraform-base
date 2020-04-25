@@ -15,6 +15,16 @@ const sectionQuery = `
         subheading, 
         alt, 
         "image": image.asset->
+    },
+    _type == 'featureSection' => {
+        _type, 
+        heading, 
+        "features": features[] {
+        title, 
+        text, 
+        alt,
+        "image": image.asset->
+    }
     }
   }),
 `;

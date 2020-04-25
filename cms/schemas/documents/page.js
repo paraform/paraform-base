@@ -31,7 +31,7 @@ export default {
       name: "content",
       type: "array",
       title: "Page sections",
-      of: [{ type: "heroSection" }],
+      of: [{ type: "heroSection" }, { type: "featureSection" }],
     },
     {
       name: "description",
