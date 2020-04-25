@@ -21,7 +21,7 @@ function HeroSection(props) {
         <Flex
           sx={{
             height: "100%",
-            width: ["100%", null, "50%"],
+            width: ["100%", null, "60%", "50%"],
             m: "0 auto",
             px: [4, 5],
             alignItems: ["flex-start", null, "flex-start"],
@@ -36,6 +36,7 @@ function HeroSection(props) {
               flexDirection: "column",
               maxWidth: ["100%", null, "550px"],
               pt: [7, null, 0],
+              pr: [0, null, null, 4],
             }}
           >
             <Heading variant="heading1">{heading}</Heading>
@@ -48,7 +49,7 @@ function HeroSection(props) {
         </Flex>
         <Flex
           sx={{
-            width: ["100%", null, "50%"],
+            width: ["100%", null, "40%", "50%"],
             height: "100%",
             top: 0,
             left: 0,

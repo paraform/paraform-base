@@ -20,7 +20,7 @@ const systemFonts =
   "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'";
 
 const fonts = {
-  body: `${systemFonts}`,
+  body: `"Bw Aleta No 10 DEMO", ${systemFonts}`,
   heading: "inherit",
   monospace:
     'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
@@ -81,7 +81,7 @@ export default {
   text: {
     heading1: {
       ...headingStyles,
-      fontSize: [5, null, 6, 7],
+      fontSize: [5, null, null, 7],
     },
     heading2: {
       ...headingStyles,
