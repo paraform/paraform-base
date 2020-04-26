@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Flex, Grid, Box, Heading } from "theme-ui";
-import { RichText } from "../../components";
+import { Feature } from "../../components";
 
 function Section(props) {
   const { features, heading } = props;
@@ -21,57 +21,21 @@ function Section(props) {
             {heading}
           </Heading>
         </Box>
-        <Grid gap={4} columns={[1, null, 3]}>
-          {features?.map((feature, index) => {
-            return (
-              <Flex
-                sx={{ flexDirection: ["column", "row", "column"] }}
-                key={index}
-              >
-                <Box sx={{ width: ["100%", "50%", "100%"], height: 240 }}>
-                  {feature.image ? (
-                    <img
-                      src={`${feature.image.url}?auto=format&fit=clip&h=240`}
-                      srcSet={`${feature.image.url}?auto=format&fit=clip&h=240 1x, ${feature.image.url}?auto=format&fit=clip&h=480 2x`}
-                      alt={feature.alt || ""}
-                      sx={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: ["contain"],
-                        objectPosition: ["top", null, "center"],
-                      }}
-                    />
-                  ) : null}
-                </Box>
-                <Flex
-                  sx={{
-                    width: ["100%", "50%", "100%"],
-                    flexDirection: ["column"],
-                    alignSelf: "center",
-                  }}
-                >
-                  <Heading
-                    as="h3"
-                    variant="heading3"
-                    sx={{ textAlign: ["center", "left", "center"] }}
-                  >
-                    {feature.title}
-                  </Heading>
-                  {feature.text ? (
-                    <Box
-                      sx={{
-                        fontSize: 1,
-                        textAlign: ["center", "left", "center"],
-                      }}
-                    >
-                      <RichText content={feature.text} />
-                    </Box>
-                  ) : null}
-                </Flex>
-              </Flex>
-            );
-          })}
-        </Grid>
+
+        {features?.map((feature, index) => {
+          const layout = feature._type;
+          const reversed = reversed;
+          return (
+            <Grid
+              gap={4}
+              columns={layout == "tripleFeature" ? [1, null, 3] : 1}
+              py={5}
+              key={index}
+            >
+              <Feature layout={layout} reversed={reversed} {...feature} />
+            </Grid>
+          );
+        })}
       </Flex>
     </Flex>
   );

@@ -17,16 +17,30 @@ _type == 'heroSection' => {
 },
 `;
 
+const featureItem = `
+  _type,
+  reversed,
+  "featureItem": featureItem[] -> {
+    title, 
+    text, 
+    alt,
+    "image": image.asset->
+  },
+`;
+
 const featureSection = `
-_type == 'featureSection' => {
+  _type == 'featureSection' => {
     _type, 
     heading, 
-    "features": features[] -> { 
-        title, 
-        text, 
-        alt,
-        "image": image.asset-> },
-}
+    "features": features[] | ({
+      _type == 'tripleFeature' => {
+        ${featureItem}
+      },
+      _type == 'singleFeature' => {
+        ${featureItem}
+      }
+    })
+  }
 `;
 
 const sectionQuery = `

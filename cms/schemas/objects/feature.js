@@ -1,7 +1,10 @@
+import { MdArtTrack } from "react-icons/md";
+
 export default {
   type: "document",
   name: "feature",
   title: "Feature",
+  icon: MdArtTrack,
   fields: [
     {
       title: "Title",
@@ -31,11 +34,14 @@ export default {
   ],
   preview: {
     select: {
-      featureTitle: "title",
+      title: "title",
+      subtitle: "label",
+      media: "image",
     },
-    prepare({ featureTitle }) {
+    prepare({ title, media }) {
       return {
-        title: `${featureTitle}`,
+        title: `${title}`,
+        media,
       };
     },
   },
