@@ -39,7 +39,9 @@ function Section(props) {
               pr: [0, null, null, 4],
             }}
           >
-            <Heading variant="heading1">{heading}</Heading>
+            <Heading as="h1" variant="heading1">
+              {heading}
+            </Heading>
             {subheading ? (
               <Box sx={{ fontSize: [2, null, 3] }}>
                 <RichText content={subheading} />
