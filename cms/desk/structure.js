@@ -31,8 +31,8 @@ export default () =>
         .title("Settings")
         .icon(MdSettings)
         .child(S.editor().schemaType("settings").documentId("settings")),
-      ...S.documentTypeListItems().filter(
-        (listItem) =>
-          !["settings", "page", "feature"].includes(listItem.getId())
-      ),
+      // ...S.documentTypeListItems().filter(
+      //   (listItem) =>
+      //     !["settings", "page", "feature"].includes(listItem.getId())
+      // ),
     ]);

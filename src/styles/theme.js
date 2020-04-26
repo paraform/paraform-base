@@ -86,14 +86,18 @@ export default {
     },
     heading2: {
       ...headingStyles,
-      fontSize: [3, null, 5],
+      fontSize: [4, 5],
     },
     heading3: {
       ...headingStyles,
-      fontSize: [3],
-      fontWeight: 300,
+      fontSize: [3, 4],
+      // fontWeight: 300,
     },
     heading4: {
+      ...headingStyles,
+      fontSize: [3],
+    },
+    heading5: {
       ...headingStyles,
       fontSize: [1, 2],
     },
