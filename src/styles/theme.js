@@ -19,15 +19,15 @@ const systemFonts =
   "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'";
 
 const fonts = {
-  body: `"Bw Aleta No 10 DEMO", ${systemFonts}`,
+  body: `"Bw Aleta No 20 DEMO", ${systemFonts}`,
   heading: "inherit",
   monospace:
     'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
 };
 
 const headingStyles = {
-  lineHeight: "shorter",
-  letterSpacing: "short",
+  lineHeight: "heading",
+  letterSpacing: "tight",
   mt: 0,
 };
 
@@ -70,12 +70,14 @@ export default {
   },
   lineHeights: {
     normal: "normal",
-    none: "1",
-    shorter: "1.25",
-    short: "1.375",
-    base: "1.5",
-    tall: "1.625",
-    taller: "2",
+    none: 1,
+    body: 1.4,
+    heading: 1.1,
+  },
+  letterSpacings: {
+    normal: "normal",
+    tight: -0.8,
+    loose: 1.3,
   },
   text: {
     heading1: {
@@ -122,7 +124,7 @@ export default {
       fontFamily: "body",
       color: "text",
       bg: "background",
-      lineHeight: "short",
+      lineHeight: "body",
     },
   },
 };

@@ -42,7 +42,7 @@ const Header = () => {
           justifyContent: "space-between",
         }}
       >
-        <Box sx={{ height: [50, null, 70], pl: 2 }}>
+        <Box sx={{ height: [40, null, 60], pl: 2 }}>
           <Logo fill="white" />
         </Box>
         <IconButton
