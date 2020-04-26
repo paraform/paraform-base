@@ -24,7 +24,7 @@ function Section(props) {
 
         {features?.map((feature, index) => {
           const layout = feature._type;
-          const reversed = reversed;
+          const reversed = feature.reversed;
           return (
             <Grid
               gap={4}

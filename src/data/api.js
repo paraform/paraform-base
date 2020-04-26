@@ -32,6 +32,7 @@ const featureSection = `
   _type == 'featureSection' => {
     _type, 
     heading, 
+    reversed,
     "features": features[] | ({
       _type == 'tripleFeature' => {
         ${featureItem}
