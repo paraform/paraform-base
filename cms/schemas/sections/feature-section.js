@@ -15,7 +15,14 @@ export default {
       name: "features",
       type: "array",
       title: "Features",
-      of: [{ type: "feature" }],
+      of: [
+        {
+          type: "reference",
+          weak: true,
+          to: [{ type: "feature" }],
+          description: "Add a feature",
+        },
+      ],
       validation: (Rule) => Rule.max(3),
     },
   ],

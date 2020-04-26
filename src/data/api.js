@@ -7,25 +7,32 @@ const pageQuery = `
   'slug': slug.current,
 `;
 
-const sectionQuery = `
-  'content': content[] | ({
-    _type == 'heroSection' => {
-        _type, 
-        heading, 
-        subheading, 
-        alt, 
-        "image": image.asset->
-    },
-    _type == 'featureSection' => {
-        _type, 
-        heading, 
-        "features": features[] {
+const heroSection = `
+_type == 'heroSection' => {
+    _type, 
+    heading, 
+    subheading, 
+    alt, 
+    "image": image.asset->
+},
+`;
+
+const featureSection = `
+_type == 'featureSection' => {
+    _type, 
+    heading, 
+    "features": features[] -> { 
         title, 
         text, 
         alt,
-        "image": image.asset->
-    }
-    }
+        "image": image.asset-> },
+}
+`;
+
+const sectionQuery = `
+  'content': content[] | ({
+   ${heroSection}
+   ${featureSection}   
   }),
 `;
 
