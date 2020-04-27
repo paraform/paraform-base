@@ -1,5 +1,10 @@
 import S from "@sanity/desk-tool/structure-builder";
-import { MdSettings, MdComputer, MdCollectionsBookmark } from "react-icons/md";
+import {
+  MdSettings,
+  MdComputer,
+  MdCollectionsBookmark,
+  MdImage,
+} from "react-icons/md";
 
 export default () =>
   S.list()
@@ -22,6 +27,20 @@ export default () =>
                 .icon(MdCollectionsBookmark)
                 .schemaType("feature")
                 .child(S.documentTypeList("feature").title("Features")),
+            ])
+        ),
+      S.divider(),
+      S.listItem()
+        .title("Assets")
+        .icon(MdImage)
+        .child(
+          S.list()
+            .title("Assets")
+            .items([
+              S.listItem()
+                .title("Animations")
+                .schemaType("animation")
+                .child(S.documentTypeList("animation").title("Animations")),
             ])
         ),
 
