@@ -25,6 +25,7 @@ function Section(props) {
         {features?.map((feature, index) => {
           const layout = feature._type;
           const reversed = feature.reversed;
+          const shadow = feature.shadow;
           return (
             <Grid
               gap={4}
@@ -32,7 +33,12 @@ function Section(props) {
               py={5}
               key={index}
             >
-              <Feature layout={layout} reversed={reversed} {...feature} />
+              <Feature
+                layout={layout}
+                reversed={reversed}
+                shadow={shadow}
+                {...feature}
+              />
             </Grid>
           );
         })}

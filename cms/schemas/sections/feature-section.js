@@ -37,11 +37,6 @@ const singleFeature = {
   icon: MdArtTrack,
   fields: [
     {
-      title: "Flip the image?",
-      name: "reversed",
-      type: "boolean",
-    },
-    {
       name: "featureItem",
       type: "array",
       title: "Feature",
@@ -54,6 +49,16 @@ const singleFeature = {
         },
       ],
       validation: (Rule) => Rule.max(1),
+    },
+    {
+      title: "Image on the right?",
+      name: "reversed",
+      type: "boolean",
+    },
+    {
+      title: "Add a drop shadow?",
+      name: "shadow",
+      type: "boolean",
     },
   ],
   preview: {

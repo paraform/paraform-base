@@ -20,6 +20,7 @@ _type == 'heroSection' => {
 const featureItem = `
   _type,
   reversed,
+  shadow,
   "featureItem": featureItem[] -> {
     title, 
     text, 
@@ -32,7 +33,6 @@ const featureSection = `
   _type == 'featureSection' => {
     _type, 
     heading, 
-    reversed,
     "features": features[] | ({
       _type == 'tripleFeature' => {
         ${featureItem}
