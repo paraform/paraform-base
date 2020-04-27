@@ -13,6 +13,7 @@ function Section(props) {
           px: [2, 0],
           position: "relative",
           height: ["auto", null, "100vh"],
+          minHeight: 600,
           maxHeight: ["none", null, "700px"],
           width: "100%",
           flexDirection: ["column", null, "row"],
