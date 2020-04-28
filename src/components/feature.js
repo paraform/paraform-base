@@ -32,7 +32,6 @@ function Feature(props) {
               }}
             >
               {feature.media?.map((item, index) => {
-                console.log(item);
                 return (
                   <Flex key={index}>
                     {item.image ? (
