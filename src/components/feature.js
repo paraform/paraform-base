@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx, Flex, Box, Heading } from "theme-ui";
 import RichText from "./rich-text";
+import Lottie from "./lottie";
 
 function Feature(props) {
   const { featureItem, layout, reversed, shadow } = props;
@@ -30,32 +31,59 @@ function Feature(props) {
                 p: 5,
               }}
             >
-              {feature.image ? (
-                <Flex
-                  maxHeight={["480px", "700px"]}
-                  sx={
-                    shadow
-                      ? {
-                          borderRadius: 32,
-                          boxShadow:
-                            "0.625rem 0.875rem 2.5rem rgba(0, 0, 0, 0.2)",
+              {feature.media?.map((item, index) => {
+                console.log(item);
+                return (
+                  <Flex key={index}>
+                    {item.image ? (
+                      <Flex
+                        maxHeight={["480px", "700px"]}
+                        sx={
+                          shadow
+                            ? {
+                                borderRadius: 32,
+                                boxShadow:
+                                  "0.625rem 0.875rem 2.5rem rgba(0, 0, 0, 0.2)",
+                              }
+                            : null
                         }
-                      : null
-                  }
-                >
-                  <img
-                    src={`${feature.image.url}?auto=format&fit=clip&h=${imageSize}`}
-                    srcSet={`${feature.image.url}?auto=format&fit=clip&h=${imageSize} 1x, ${feature.image.url}?auto=format&fit=clip&h=${imageSize2x} 2x`}
-                    alt={feature.alt || ""}
-                    sx={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: ["contain"],
-                      objectPosition: ["top", null, "center"],
-                    }}
-                  />
-                </Flex>
-              ) : null}
+                      >
+                        <img
+                          src={`${item.image}?auto=format&fit=clip&h=${imageSize}`}
+                          srcSet={`${item.image}?auto=format&fit=clip&h=${imageSize} 1x, ${item.image}?auto=format&fit=clip&h=${imageSize2x} 2x`}
+                          alt={item.alt || ""}
+                          sx={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: ["contain"],
+                            objectPosition: ["top", null, "center"],
+                          }}
+                        />
+                      </Flex>
+                    ) : null}
+                    {item.data ? (
+                      <Flex
+                        sx={{
+                          justifyContent: "center",
+                          alignItems: "center",
+                          width: "100%",
+                          height: "100%",
+                        }}
+                      >
+                        <Lottie
+                          key={index}
+                          loop
+                          animationData={JSON.parse(item.data)}
+                          sx={{
+                            width: "100%",
+                            height: "auto",
+                          }}
+                        />
+                      </Flex>
+                    ) : null}
+                  </Flex>
+                );
+              })}
             </Flex>
             <Flex
               textAlign={

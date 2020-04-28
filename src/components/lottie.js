@@ -133,7 +133,7 @@ class Lottie extends Component {
             progressiveLoad: true,
             preserveAspectRatio: "xMidYMid slice",
             hideOnTransparent: true,
-            className: "lootieItem",
+            className: "lottieItem",
           },
         };
         if (animationData) {

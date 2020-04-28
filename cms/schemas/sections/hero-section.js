@@ -1,7 +1,7 @@
 import { MdArtTrack } from "react-icons/md";
 
 export default {
-  type: "object",
+  type: "document",
   name: "heroSection",
   title: "Hero Section",
   icon: MdArtTrack,
@@ -17,19 +17,20 @@ export default {
       type: "simpleText",
     },
     {
-      title: "Image",
-      name: "image",
-      type: "image",
-      options: {
-        hotspot: true,
-        metadata: ["lqip"],
-      },
-    },
-    {
-      title: "Alt Text",
-      description: "Alternate text for when the image wont load (SEO)",
-      name: "alt",
-      type: "string",
+      title: "Media",
+      name: "media",
+      type: "array",
+      of: [
+        { type: "imageAsset" },
+        {
+          title: "Animation",
+          name: "animation",
+          type: "reference",
+          description: "Add an animation",
+          to: [{ type: "animation" }],
+        },
+      ],
+      validation: (Rule) => Rule.max(1),
     },
   ],
   preview: {

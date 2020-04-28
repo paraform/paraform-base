@@ -41,6 +41,10 @@ export default () =>
                 .title("Animations")
                 .schemaType("animation")
                 .child(S.documentTypeList("animation").title("Animations")),
+              S.listItem()
+                .title("Images")
+                .icon(MdImage)
+                .child(S.documentTypeList("sanity.imageAsset")),
             ])
         ),
 

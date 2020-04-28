@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx, Box, Flex, Heading } from "theme-ui";
-import { RichText } from "../../components";
+import { RichText, Lottie } from "../../components";
 
 function Section(props) {
-  const { heading, subheading, image, alt } = props;
+  const { heading, subheading, media } = props;
   return (
     <Flex bg="background">
       <Flex
@@ -11,6 +11,7 @@ function Section(props) {
           maxWidth: "1200px",
           margin: "0 auto",
           px: [2, 0],
+          m: "0 auto",
           position: "relative",
           height: ["auto", null, "100vh"],
           minHeight: 600,
@@ -23,7 +24,6 @@ function Section(props) {
           sx={{
             height: "100%",
             width: ["100%", null, "60%", "55%"],
-            m: "0 auto",
             px: [4, 5],
             alignItems: ["flex-start", null, "flex-start"],
             justifyContent: ["flex-start", null, "center"],
@@ -50,33 +50,58 @@ function Section(props) {
             ) : null}
           </Flex>
         </Flex>
-        <Flex
-          sx={{
-            width: ["100%", null, "40%", "45%"],
-            height: "100%",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            margin: "auto",
-            pt: [5, null, 0],
-            justifyContent: "flex-end",
-          }}
-        >
-          {image ? (
-            <img
-              src={`${image.url}?auto=format&fit=clip&h=750`}
-              srcSet={`${image.url}?auto=format&fit=clip&h=750 1x, ${image.url}?auto=format&fit=clip&h=1500 2x`}
-              alt={alt || ""}
+        {media?.map((item, index) => {
+          return (
+            <Flex
+              key={index}
               sx={{
-                width: "100%",
+                width: ["100%", null, "40%", "45%"],
                 height: "100%",
-                objectFit: ["contain"],
-                objectPosition: ["top", null, "right center"],
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                margin: "auto",
+                pt: [5, null, 0],
+                justifyContent: "flex-end",
               }}
-            />
-          ) : null}
-        </Flex>
+            >
+              {item.image ? (
+                <img
+                  src={`${item.image}?auto=format&fit=clip&h=750`}
+                  srcSet={`${item.image}?auto=format&fit=clip&h=750 1x, ${item.image}?auto=format&fit=clip&h=1500 2x`}
+                  alt={item.alt || ""}
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: ["contain"],
+                    objectPosition: ["top", null, "right center"],
+                  }}
+                />
+              ) : null}
+              {item.data ? (
+                <Flex
+                  sx={{
+                    justifyContent: "center",
+                    alignItems: "center",
+                    width: "100%",
+                    height: "100%",
+                  }}
+                >
+                  <Lottie
+                    key={index}
+                    loop
+                    animationData={JSON.parse(item.data)}
+                    sx={{
+                      width: "100%",
+                      height: "auto",
+                    }}
+                  />
+                </Flex>
+              ) : null}
+            </Flex>
+          );
+        })}
       </Flex>
     </Flex>
   );

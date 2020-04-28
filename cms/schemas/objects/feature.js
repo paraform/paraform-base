@@ -17,19 +17,21 @@ export default {
       type: "simpleText",
     },
     {
-      title: "Image",
-      name: "image",
-      type: "image",
-      options: {
-        hotspot: true,
-        metadata: ["lqip"],
-      },
-    },
-    {
-      title: "Alt Text",
-      description: "Alternate text for when the image wont load (SEO)",
-      name: "alt",
-      type: "string",
+      title: "Media",
+      name: "media",
+      type: "array",
+      of: [
+        { type: "imageAsset" },
+        {
+          name: "animation",
+          type: "reference",
+          title: "Animation",
+          weak: true,
+          to: [{ type: "animation" }],
+          description: "Add an animation",
+        },
+      ],
+      validation: (Rule) => Rule.max(1),
     },
   ],
   preview: {

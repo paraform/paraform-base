@@ -7,14 +7,23 @@ const pageQuery = `
   'slug': slug.current,
 `;
 
+const media = `
+  'media': media[] | ({
+    _type == 'imageAsset' => {
+      alt,
+      "image": image.asset->url,
+    },
+    _type == 'animation' => @-> {data}
+  }),
+`;
+
 const heroSection = `
-_type == 'heroSection' => {
+  _type == 'heroSection' => {
     _type, 
     heading, 
     subheading, 
-    alt, 
-    "image": image.asset->
-},
+    ${media}
+  },
 `;
 
 const featureItem = `
@@ -25,7 +34,7 @@ const featureItem = `
     title, 
     text, 
     alt,
-    "image": image.asset->
+    ${media}
   },
 `;
 
