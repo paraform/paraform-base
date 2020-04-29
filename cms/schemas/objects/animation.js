@@ -5,7 +5,7 @@ import { MdPlayCircleOutline } from "react-icons/md";
 export default {
   title: "Animation",
   name: "animation",
-  type: "object",
+  type: "document",
   icon: MdPlayCircleOutline,
   preview: {
     select: {
@@ -19,7 +19,7 @@ export default {
         description: "",
         media: () => (
           <div style={{ background: "white" }}>
-            {data && <Lottie data={JSON.parse(data)} />}
+            {data && <Lottie data={data} />}
           </div>
         ),
       };
