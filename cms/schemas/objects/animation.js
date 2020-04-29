@@ -19,7 +19,7 @@ export default {
         description: "",
         media: () => (
           <div style={{ background: "white" }}>
-            {data && <Lottie loop animationData={JSON.parse(data)} />}
+            {data && <Lottie data={JSON.parse(data)} />}
           </div>
         ),
       };

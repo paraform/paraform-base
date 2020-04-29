@@ -1,184 +1,123 @@
-import React, { Component } from "react";
+import React from "react";
+import { css } from "@emotion/core";
+import { createRef, useEffect, useState } from "react";
 import lottie from "lottie-web";
+import { throttle } from "lodash";
 
-class Lottie extends Component {
-  constructor() {
-    super();
-    this.animationLoaded = this.animationLoaded.bind(this);
-    this.setElement = this.setElement.bind(this);
-    this.element = null;
-  }
+// https://stackoverflow.com/a/28241682/665261
+const getWindowHeight = () =>
+  window.innerHeight ||
+  document.documentElement.clientHeight ||
+  document.body.clientHeight;
 
-  componentDidUpdate() {
-    this.attachAnimation();
-  }
+const segmentsFromData = ({ op, ip }) => [
+  [0, op],
+  [ip, op],
+];
 
-  componentWillUnmount() {
-    if (this.animation) {
-      try {
-        this.animation.destroy();
-      } catch (err) {
-        console.log("destroy error");
-      }
-      this.animation = null;
-    }
-    if (this.element) {
-      this.element = null;
-    }
-  }
+const DISABLE_ALL_ANIMATIONS =
+  process.browser && /DISABLE_ALL_ANIMATIONS=true/.test(document.cookie);
 
-  setElement(elem) {
-    this.element = elem;
-    this.attachAnimation();
-  }
+const Lottie = ({ data }) => {
+  const { h, w } = data;
+  const paddingTop = `${(h / w) * 100}%`;
+  const el = createRef();
 
-  setSegment(init, end) {
-    if (this.animation) {
-      this.animation.setSegment(init, end);
-    }
-  }
+  const [activated, setActivated] = useState(false);
 
-  setSpeed(speed) {
-    if (this.animation) {
-      this.animation.setSpeed(speed);
-    }
-  }
+  const positionGetter = () => {
+    const { top, height } = (el.current &&
+      el.current.getBoundingClientRect()) || {
+      top: 0,
+      height: 0,
+    };
 
-  setDirection(dir) {
-    if (this.animation) {
-      this.animation.setDirection(dir);
-    }
-  }
+    return { elementTop: top, elementHeight: height };
+  };
 
-  getCurrentFrame() {
-    if (this.animation) {
-      return this.animation.currentRawFrame;
-    }
-    return 0;
-  }
+  useEffect(() => {
+    const clearListeners = (interval, listener) => {
+      clearInterval(interval);
+      listener.cancel();
+      window.removeEventListener("scroll", listener);
+      window.removeEventListener("resize", listener);
+    };
 
-  getFirstFrame() {
-    if (this.animation) {
-      return this.animation.firstFrame;
-    }
-    return 0;
-  }
+    const options = {
+      container: el.current,
+      loop: true,
+      autoplay: false,
+      segments: segmentsFromData(data),
+      animationData: data,
+    };
 
-  animationLoaded() {
-    const { animationLoaded } = this.props;
-    if (animationLoaded) {
-      animationLoaded();
-    }
-  }
-
-  goToAndPlay(num, isFrame) {
-    if (this.animation) {
-      this.animation.goToAndPlay(num, isFrame);
-    }
-  }
-
-  goToAndStop(num, isFrame) {
-    if (this.animation) {
-      this.animation.goToAndStop(num, isFrame);
-    }
-  }
-
-  playSegments(segments, forceFlag) {
-    if (this.animation) {
-      this.animation.playSegments(segments, forceFlag);
-    }
-  }
-
-  resetSegments(flag) {
-    if (this.animation) {
-      this.animation.resetSegments(flag);
-    }
-  }
-
-  play() {
-    if (this.animation) {
-      this.animation.play();
-    }
-  }
-
-  stop() {
-    if (this.animation) {
-      this.animation.stop();
-    }
-  }
-
-  loop(value) {
-    if (this.animation) {
-      this.animation.loop = value;
-    }
-  }
-
-  attachAnimation() {
-    const {
-      animationData,
-      path,
-      renderer,
-      autoplay,
-      loop,
-      rendererSettings,
-    } = this.props;
-    if (!this.animation && this.element && (animationData || path)) {
-      try {
-        const params = {
-          container: this.element,
-          renderer: renderer || "svg",
-          autoplay,
-          loop,
-          rendererSettings: {
-            progressiveLoad: true,
-            preserveAspectRatio: "xMidYMid slice",
-            hideOnTransparent: true,
-            className: "lottieItem",
-          },
-        };
-        if (animationData) {
-          params.animationData = animationData;
-        } else if (path) {
-          params.path = path;
-        }
-        if (rendererSettings) {
-          params.rendererSettings = {
-            ...params.rendererSettings,
-            ...rendererSettings,
-          };
-        }
-        this.animation = lottie.loadAnimation(params);
-        this.animation.addEventListener("DOMLoaded", this.animationLoaded);
-      } catch (err) {
-        this.element.innerHTML = "";
-      }
-    }
-  }
-
-  render() {
-    const {
-      children,
-      animationData,
-      animationLoaded,
-      autoplay,
-      loop,
-      path,
-      renderer,
-      rendererSettings,
-      ...rest
-    } = this.props;
-    const element = <span />;
-    const cloned = React.cloneElement(children || element, {
-      ref: this.setElement,
-      ...rest,
+    let anim = lottie.loadAnimation({
+      ...options,
+      animationData: JSON.parse(JSON.stringify(data)),
     });
-    return cloned;
-  }
-}
 
-Lottie.defaultProps = {
-  autoplay: true,
-  loop: false,
+    anim.setDirection(-1);
+    !DISABLE_ALL_ANIMATIONS && anim.playSegments([[0, 1]], true);
+    anim.setDirection(1);
+    anim.pause();
+
+    // Set up scroll and interval listeners
+    const listener = throttle(() => {
+      if (!anim) {
+        return;
+      }
+
+      const windowHeight = getWindowHeight();
+      const { elementTop, elementHeight } = positionGetter();
+
+      if (windowHeight - elementTop > elementHeight / 2) {
+        setActivated(true);
+        clearListeners(interval, listener);
+        !DISABLE_ALL_ANIMATIONS && anim.playSegments(options.segments, true);
+      }
+    }, 100);
+
+    const interval = setInterval(
+      () => window.requestAnimationFrame(listener),
+      200
+    );
+
+    window.addEventListener("scroll", listener);
+    window.addEventListener("resize", listener);
+
+    // Teardown on unmount
+    return () => {
+      clearListeners(interval, listener);
+
+      anim.destroy();
+      options.animationData = null;
+      anim = null;
+    };
+  }, []);
+
+  const lottieStyles = {
+    width: "100%",
+    paddingTop,
+    height: 0,
+    position: "relative",
+    overflow: "hidden",
+    margin: "0 auto",
+    outline: "none",
+  };
+
+  return (
+    <div
+      ref={el}
+      css={css`
+        ${lottieStyles}
+        svg {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      `}
+    />
+  );
 };
 
 export default Lottie;
