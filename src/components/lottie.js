@@ -15,9 +15,6 @@ const segmentsFromData = ({ op, ip }) => [
   [ip, op],
 ];
 
-const DISABLE_ALL_ANIMATIONS =
-  process.browser && /DISABLE_ALL_ANIMATIONS=true/.test(document.cookie);
-
 const Lottie = ({ data }) => {
   const { h, w } = data;
   const paddingTop = `${(h / w) * 100}%`;
@@ -57,7 +54,7 @@ const Lottie = ({ data }) => {
     });
 
     anim.setDirection(-1);
-    !DISABLE_ALL_ANIMATIONS && anim.playSegments([[0, 1]], true);
+    anim.playSegments([[0, 1]], true);
     anim.setDirection(1);
     anim.pause();
 
@@ -73,7 +70,7 @@ const Lottie = ({ data }) => {
       if (windowHeight - elementTop > elementHeight / 2) {
         setActivated(true);
         clearListeners(interval, listener);
-        !DISABLE_ALL_ANIMATIONS && anim.playSegments(options.segments, true);
+        anim.playSegments(options.segments, true);
       }
     }, 100);
 
