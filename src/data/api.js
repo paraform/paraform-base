@@ -4,17 +4,27 @@ const pageQuery = `
   name,
   title,
   description,
-  'slug': slug.current,
+  'slug': slug.current
+`;
+
+const image = `
+  _type == 'imageAsset' => {
+    alt,
+    "image": image.asset->url
+  }
+`;
+
+const animation = `
+  _type == 'animation' => @-> {
+    data
+  }
 `;
 
 const media = `
   'media': media[] | ({
-    _type == 'imageAsset' => {
-      alt,
-      "image": image.asset->url,
-    },
-    _type == 'animation' => @-> {data}
-  }),
+    ${image},
+    ${animation}
+  })
 `;
 
 const heroSection = `
@@ -23,7 +33,7 @@ const heroSection = `
     heading, 
     subheading, 
     ${media}
-  },
+  }
 `;
 
 const featureItem = `
@@ -35,7 +45,7 @@ const featureItem = `
     text, 
     alt,
     ${media}
-  },
+  }
 `;
 
 const featureSection = `
@@ -55,7 +65,7 @@ const featureSection = `
 
 const sectionQuery = `
   'content': content[] | ({
-   ${heroSection}
+   ${heroSection},
    ${featureSection}   
   }),
 `;
@@ -70,7 +80,7 @@ export async function getPageData(slug) {
     client
       .fetch(
         `*[_type == "page" && slug.current == $slug]{
-        ${pageQuery}
+        ${pageQuery},
         ${sectionQuery}
       }`,
         { slug }
