@@ -2,7 +2,6 @@ import { getPageData } from "../data/api";
 import { Page } from "../layouts";
 
 export default function Index({ page, settings }) {
-  console.log(settings.name);
   return <Page data={page} settings={settings} />;
 }
 
