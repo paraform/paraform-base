@@ -32,6 +32,11 @@ export default {
       ],
       validation: (Rule) => Rule.max(1),
     },
+    {
+      title: "Appearance",
+      name: "appearance",
+      type: "section",
+    },
   ],
   preview: {
     select: {

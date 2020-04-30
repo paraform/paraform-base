@@ -7,6 +7,10 @@ const pageQuery = `
   'slug': slug.current
 `;
 
+const appearance = `
+ "appearance": appearance
+`;
+
 const image = `
   _type == 'imageAsset' => {
     alt,
@@ -32,7 +36,8 @@ const heroSection = `
     _type, 
     heading, 
     subheading, 
-    ${media}
+    ${media},
+    ${appearance} 
   }
 `;
 
@@ -66,7 +71,7 @@ const featureSection = `
 const sectionQuery = `
   'content': content[] | ({
    ${heroSection},
-   ${featureSection}   
+   ${featureSection}
   }),
 `;
 
@@ -86,12 +91,12 @@ export async function getPageData(slug) {
         { slug }
       )
       .then((res) => res?.[0]),
-      client.fetch(`*[_type == "settings"]{ "name": name }`)
+    client
+      .fetch(`*[_type == "settings"]{ "name": name }`)
       .then((res) => res?.[0]),
   ]);
   return { page, settings };
 }
-
 
 // For later
 // const getUniquePages = (pages) => {

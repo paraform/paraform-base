@@ -5,6 +5,7 @@ import ErrorPage from "next/error";
 import Head from "next/head";
 import * as sections from "./sections";
 import Header from "./header";
+import { Section } from "../components";
 
 const modelToViewName = (modelName) =>
   modelName.replace(/^([a-z])/, (first) => first.toUpperCase());
@@ -23,7 +24,9 @@ export default function Page({ data, settings }) {
       ) : (
         <Box>
           <Head>
-            <title>{data.title} | {settings.name} </title>
+            <title>
+              {data.title} | {settings.name}{" "}
+            </title>
             <meta name="description" content={data.description} />
           </Head>
           {data.content?.map((section, index) => {
@@ -31,11 +34,7 @@ export default function Page({ data, settings }) {
 
             if (sections[sectionName]) {
               const Section = sections[sectionName];
-              return (
-                <section key={index}>
-                  <Section {...section} />
-                </section>
-              );
+              return <Section key={index} {...section} />;
             }
           })}
         </Box>

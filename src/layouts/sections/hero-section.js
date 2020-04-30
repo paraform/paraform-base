@@ -1,13 +1,17 @@
 /** @jsx jsx */
 import { jsx, Box, Flex, Heading } from "theme-ui";
-import { RichText, Media } from "../../components";
+import { Section, RichText, Media } from "../../components";
 
-function Section(props) {
-  const { heading, subheading, media } = props;
+function HeroSection(props) {
+  const { heading, subheading, media, appearance } = props;
   const x1 = 750;
   const x2 = 1500;
   return (
-    <Flex bg="background">
+    <Section
+      backgroundColor={null}
+      backgroundGradient={appearance ? appearance.backgroundGradient : null}
+      backgroundImage={null}
+    >
       <Flex
         sx={{
           maxWidth: "1200px",
@@ -71,8 +75,8 @@ function Section(props) {
           })}
         </Flex>
       </Flex>
-    </Flex>
+    </Section>
   );
 }
 
-export default Section;
+export default HeroSection;
