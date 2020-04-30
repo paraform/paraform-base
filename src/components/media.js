@@ -22,8 +22,8 @@ function Media(props) {
           sx={{
             height: "100%",
             width: "100%",
-            objectFit: ["contain", null, "cover", "contain"],
-            objectPosition: ["top", null, "center"],
+            objectFit: ["contain", null, "cover"],
+            objectPosition: ["top", null, "bottom"],
           }}
         />
       ) : null}
