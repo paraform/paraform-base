@@ -9,7 +9,7 @@ import Header from "./header";
 const modelToViewName = (modelName) =>
   modelName.replace(/^([a-z])/, (first) => first.toUpperCase());
 
-export default function Page({ data }) {
+export default function Page({ data, settings }) {
   const router = useRouter();
   if (!router.isFallback && !data?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -23,7 +23,7 @@ export default function Page({ data }) {
       ) : (
         <Box>
           <Head>
-            <title>{data.title} | Paraform</title>
+            <title>{data.title} | {settings.name} </title>
             <meta name="description" content={data.description} />
           </Head>
           {data.content?.map((section, index) => {

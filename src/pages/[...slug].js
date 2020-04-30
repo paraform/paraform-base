@@ -1,13 +1,15 @@
-import { getPages, getPageData } from "../data/api";
+import { getPages, getPageData, getConfig } from "../data/api";
 import Page from "./index";
 
 export default Page;
 
 export async function getStaticProps({ params }) {
   const data = await getPageData(params.slug.join("/"));
+  const config = await getConfig();
   return {
     props: {
       page: data.page || null,
+      settings: config.settings || null,
     },
   };
 }

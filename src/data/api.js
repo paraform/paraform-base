@@ -76,7 +76,7 @@ export async function getPages() {
 }
 
 export async function getPageData(slug) {
-  const [page] = await Promise.all([
+  const [page, settings] = await Promise.all([
     client
       .fetch(
         `*[_type == "page" && slug.current == $slug]{
@@ -86,9 +86,12 @@ export async function getPageData(slug) {
         { slug }
       )
       .then((res) => res?.[0]),
+      client.fetch(`*[_type == "settings"]{ "name": name }`)
+      .then((res) => res?.[0]),
   ]);
-  return { page };
+  return { page, settings };
 }
+
 
 // For later
 // const getUniquePages = (pages) => {
