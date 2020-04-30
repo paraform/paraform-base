@@ -21,38 +21,40 @@ function Feature(props) {
             }
             key={index}
           >
-            <Flex
-              sx={{
-                width: ["100%", "50%", "100%"],
-                height: layout == "tripleFeature" ? x1 : "100%",
-                mt: layout == "tripleFeature" ? 0 : [0, null, null, -10],
-                mb: layout == "tripleFeature" ? 4 : [0, null, null, -40],
-              }}
-            >
-              {feature.media?.map((item, index) => {
-                return (
-                  <Flex
-                    key={index}
-                    sx={{
-                      maxHeight: 700,
-                      mx: "auto",
-                      px: [0, 5, 0],
-                      mb: [5, 0],
-                    }}
-                  >
-                    <Media
+            {feature.media ? (
+              <Flex
+                sx={{
+                  width: ["100%", "50%", "100%"],
+                  height: layout == "tripleFeature" ? x1 : "100%",
+                  mt: layout == "tripleFeature" ? 0 : [0, null, null, -10],
+                  mb: layout == "tripleFeature" ? 4 : [0, null, null, -40],
+                }}
+              >
+                {feature.media?.map((item, index) => {
+                  return item ? (
+                    <Flex
                       key={index}
-                      image={item.image}
-                      alt={item.alt}
-                      data={item.data}
-                      x1={x1}
-                      x2={x2}
-                      shadow={shadow}
-                    />
-                  </Flex>
-                );
-              })}
-            </Flex>
+                      sx={{
+                        maxHeight: 700,
+                        mx: "auto",
+                        px: [0, 5, 0],
+                        mb: [5, 0],
+                      }}
+                    >
+                      <Media
+                        key={index}
+                        image={item.image}
+                        alt={item.alt}
+                        data={item.data}
+                        x1={x1}
+                        x2={x2}
+                        shadow={shadow}
+                      />
+                    </Flex>
+                  ) : null;
+                })}
+              </Flex>
+            ) : null}
             <Flex
               textAlign={
                 layout == "tripleFeature"
