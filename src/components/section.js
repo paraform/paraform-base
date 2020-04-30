@@ -2,26 +2,22 @@
 import { jsx, Box } from "theme-ui";
 
 function Section(props) {
-  const {
-    backgroundColor,
-    backgroundGradient,
-    backgroundImage,
-    children,
-  } = props;
+  const { backgroundColor, backgroundGradient, children } = props;
 
   return (
     <Box
       as="section"
       sx={{
         bg: backgroundColor ? backgroundColor : "background",
-        background: backgroundGradient
-          ? backgroundGradient
-          : backgroundImage
-          ? backgroundImage
-          : null,
       }}
     >
-      {children}
+      <Box
+        sx={{
+          background: backgroundGradient ? backgroundGradient : null,
+        }}
+      >
+        {children}
+      </Box>
     </Box>
   );
 }

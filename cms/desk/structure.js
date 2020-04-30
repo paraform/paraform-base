@@ -4,7 +4,11 @@ import {
   MdComputer,
   MdCollectionsBookmark,
   MdImage,
+  MdPalette,
+  MdInvertColors,
+  MdFormatColorFill,
 } from "react-icons/md";
+import { BsToggleOn } from "react-icons/bs";
 
 export default () =>
   S.list()
@@ -31,6 +35,47 @@ export default () =>
         ),
       S.divider(),
       S.listItem()
+        .title("Theme")
+        .icon(MdPalette)
+        .child(
+          S.list()
+            .title("Theme")
+            .items([
+              S.listItem()
+                .title("Colors")
+                .icon(MdPalette)
+                .child(
+                  S.list()
+                    .title("Colors")
+                    .items([
+                      S.listItem()
+                        .title("Brand Colors")
+                        .icon(MdInvertColors)
+                        .schemaType("brandColors")
+                        .child(
+                          S.documentTypeList("brandColors").title(
+                            "Brand Colors"
+                          )
+                        ),
+                      S.listItem()
+                        .title("Background Colors")
+                        .icon(MdFormatColorFill)
+                        .schemaType("backgroundColors")
+                        .child(
+                          S.documentTypeList("backgroundColors").title(
+                            "Background Colors"
+                          )
+                        ),
+                    ])
+                ),
+              S.listItem()
+                .title("Modes")
+                .icon(BsToggleOn)
+                .schemaType("modes")
+                .child(S.documentTypeList("modes").title("Modes")),
+            ])
+        ),
+      S.listItem()
         .title("Assets")
         .icon(MdImage)
         .child(
@@ -47,9 +92,7 @@ export default () =>
                 .child(S.documentTypeList("sanity.imageAsset")),
             ])
         ),
-
       S.divider(),
-
       S.listItem()
         .title("Settings")
         .icon(MdSettings)

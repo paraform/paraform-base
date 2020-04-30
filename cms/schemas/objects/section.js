@@ -1,5 +1,6 @@
 export default {
   name: "section",
+  title: "section",
   type: "object",
   fieldsets: [
     {
@@ -15,7 +16,7 @@ export default {
       description: "Add a background color",
       fieldset: "appearance",
       type: "reference",
-      to: [{ type: "color" }],
+      to: [{ type: "backgroundColors" }, { type: "brandColors" }],
     },
     {
       name: "backgroundGradient",

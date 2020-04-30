@@ -7,10 +7,6 @@ const pageQuery = `
   'slug': slug.current
 `;
 
-const appearance = `
- "appearance": appearance
-`;
-
 const image = `
   _type == 'imageAsset' => {
     alt,
@@ -29,6 +25,13 @@ const media = `
     ${image},
     ${animation}
   })
+`;
+
+const appearance = `
+ 'appearance': appearance {
+  "backgroundColor": backgroundColor->color.hex,
+  backgroundGradient
+ }
 `;
 
 const heroSection = `
@@ -81,7 +84,7 @@ export async function getPages() {
 }
 
 export async function getPageData(slug) {
-  const [page, settings] = await Promise.all([
+  const [page, settings, theme] = await Promise.all([
     client
       .fetch(
         `*[_type == "page" && slug.current == $slug]{
@@ -94,8 +97,15 @@ export async function getPageData(slug) {
     client
       .fetch(`*[_type == "settings"]{ "name": name }`)
       .then((res) => res?.[0]),
+    client
+      .fetch(
+        `*[_type == "brandColors"]{
+            "color": color.hex
+        }`
+      )
+      .then((res) => res?.[0]),
   ]);
-  return { page, settings };
+  return { page, settings, theme };
 }
 
 // For later
