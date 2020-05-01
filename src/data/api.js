@@ -60,6 +60,7 @@ const featureSection = `
   _type == 'featureSection' => {
     _type, 
     heading, 
+    ${appearance},
     "features": features[] | ({
       _type == 'tripleFeature' => {
         ${featureItem}
@@ -67,7 +68,7 @@ const featureSection = `
       _type == 'singleFeature' => {
         ${featureItem}
       }
-    })
+    }),
   }
 `;
 
@@ -97,13 +98,15 @@ export async function getPageData(slug) {
     client
       .fetch(`*[_type == "settings"]{ "name": name }`)
       .then((res) => res?.[0]),
-    client
-      .fetch(
-        `*[_type == "brandColors"]{
-            "color": color.hex
-        }`
-      )
-      .then((res) => res?.[0]),
+    client.fetch(`*[_type in ["modes", "brandColors", "backgroundColors"]]{
+      "color": name,
+      "value": color.hex,
+      'mode': mode[] | ({
+        "background": background->color.hex,
+        "text": text->color.hex,
+        "mode": mode,
+      })
+    }`),
   ]);
   return { page, settings, theme };
 }

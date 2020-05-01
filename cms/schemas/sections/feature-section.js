@@ -87,6 +87,11 @@ export default {
       type: "array",
       of: [singleFeature, tripleFeature],
     },
+    {
+      title: "Appearance",
+      name: "appearance",
+      type: "section",
+    },
   ],
   preview: {
     select: {

@@ -8,7 +8,7 @@ function Section(props) {
     <Box
       as="section"
       sx={{
-        bg: backgroundColor ? backgroundColor : "background",
+        bg: backgroundColor,
       }}
     >
       <Box

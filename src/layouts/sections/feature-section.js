@@ -1,16 +1,20 @@
 /** @jsx jsx */
 import { jsx, Flex, Grid, Heading } from "theme-ui";
-import { Feature } from "../../components";
+import { Section, Feature } from "../../components";
 
-function Section(props) {
-  const { features, heading } = props;
+function FeatureSection(props) {
+  const { features, heading, appearance } = props;
   return (
-    <Flex sx={{ bg: "white", py: 6 }}>
+    <Section
+      backgroundColor={appearance.backgroundColor}
+      backgroundGradient={appearance.backgroundGradient}
+    >
       <Flex
         sx={{
           maxWidth: "1200px",
           margin: "0 auto",
           px: [4, 5],
+          py: 6,
           width: "100%",
           flexDirection: "column",
         }}
@@ -40,8 +44,8 @@ function Section(props) {
           );
         })}
       </Flex>
-    </Flex>
+    </Section>
   );
 }
 
-export default Section;
+export default FeatureSection;

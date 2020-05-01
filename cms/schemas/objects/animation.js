@@ -19,7 +19,7 @@ export default {
         description: "",
         media: () => (
           <div style={{ background: "white" }}>
-            {data && <Lottie data={data} />}
+            {data && <Lottie data={JSON.parse(data)} />}
           </div>
         ),
       };

@@ -72,7 +72,12 @@ export default () =>
                 .title("Modes")
                 .icon(BsToggleOn)
                 .schemaType("modes")
-                .child(S.documentTypeList("modes").title("Modes")),
+                .child(
+                  S.editor()
+                    .title("Modes")
+                    .schemaType("modes")
+                    .documentId("modes")
+                ),
             ])
         ),
       S.listItem()
