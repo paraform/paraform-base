@@ -92,7 +92,12 @@ export async function getPageData(slug) {
       )
       .then((res) => res?.[0]),
     client
-      .fetch(`*[_type == "settings"]{ "name": name }`)
+      .fetch(
+        `*[_type == "settings"]{ 
+        "name": name, 
+        "banner": banner 
+      }`
+      )
       .then((res) => res?.[0]),
   ]);
   return { page, settings };
