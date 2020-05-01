@@ -3,6 +3,7 @@ import { Page } from "../layouts";
 
 export default function Index({ page, settings, theme }) {
   console.log(theme);
+  console.log(settings);
   return <Page data={page} settings={settings} />;
 }
 

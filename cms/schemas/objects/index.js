@@ -6,3 +6,4 @@ export { default as imageAsset } from "./image";
 export { default as section } from "./section";
 export { default as colorSwatch } from "./color-swatch";
 export { default as mode } from "./mode";
+export { default as banner } from "./banner";
