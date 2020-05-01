@@ -6,13 +6,13 @@ export default function Banner({ text }) {
   return (
     <Flex
       sx={{
-        bg: "white",
+        bg: "text",
         width: "100%",
         justifyContent: "center",
         px: 5,
       }}
     >
-      <Box sx={{ textAlign: "center", fontSize: 0 }}>
+      <Box sx={{ textAlign: "center", fontSize: 0, color: "background" }}>
         <RichText content={text} />
       </Box>
     </Flex>
