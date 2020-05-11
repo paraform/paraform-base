@@ -1,4 +1,5 @@
 /** @jsx jsx */
+import { Fragment } from "react";
 import { jsx, Box } from "theme-ui";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
@@ -16,9 +17,9 @@ export default function Page({ data, settings }) {
   if (!router.isFallback && !data?.slug) {
     return <ErrorPage statusCode={404} />;
   }
-  console.log(data);
+  process.browser && console.log(data);
   return (
-    <>
+    <Fragment>
       {banner ? <Banner text={settings.banner.text} /> : null}
       <Header />
       {router.isFallback ? (
@@ -41,6 +42,6 @@ export default function Page({ data, settings }) {
           })}
         </Box>
       )}
-    </>
+    </Fragment>
   );
 }

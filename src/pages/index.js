@@ -1,13 +1,12 @@
 import { getPageData } from "../data/api";
-import { Page } from "../layouts";
+import { DefaultLayout } from "../layouts";
 
-export default function Index({ page, settings, theme }) {
-  console.log(theme);
-  console.log(settings);
-  return <Page data={page} settings={settings} />;
-}
+export default ({ page, settings, theme }) => {
+  process.browser && console.log({theme, settings});
+  return <DefaultLayout data={page} settings={settings} />;
+};
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
   const data = await getPageData("home");
   return {
     props: {
@@ -16,4 +15,4 @@ export async function getStaticProps() {
       theme: data.theme || null,
     },
   };
-}
+};

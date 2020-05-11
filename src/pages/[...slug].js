@@ -1,7 +1,5 @@
 import { getPages, getPageData } from "../data/api";
-import Page from "./index";
-
-export default Page;
+export { default } from "./index";
 
 export async function getStaticProps({ params }) {
   const data = await getPageData(params.slug.join("/"));
@@ -9,6 +7,7 @@ export async function getStaticProps({ params }) {
     props: {
       page: data.page || null,
       settings: data.settings || null,
+      theme: data.theme || null,
     },
   };
 }
