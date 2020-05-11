@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { getPageData } from "../data/api";
+import { getPageData } from "data/api";
 
 const getHost = (req) => {
   if (!req) return '';

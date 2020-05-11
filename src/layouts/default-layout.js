@@ -6,7 +6,7 @@ import ErrorPage from "next/error";
 import Head from "next/head";
 import * as sections from "./sections";
 import Header from "./header";
-import { Banner } from "../components";
+import { Banner } from "components";
 
 const modelToViewName = (modelName) =>
   modelName.replace(/^([a-z])/, (first) => first.toUpperCase());

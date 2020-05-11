@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Flex, Box, IconButton, useColorMode } from "theme-ui";
-import { Logo, Drop } from "../components/svg";
+import { Logo, Drop } from "components/svg";
 
 const modes = [
   "cream",

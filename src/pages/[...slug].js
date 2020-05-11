@@ -1,4 +1,4 @@
-import { getPages, getPageData } from "../data/api";
+import { getPages, getPageData } from "data/api";
 export { default } from "./index";
 
 export async function getStaticProps({ params }) {

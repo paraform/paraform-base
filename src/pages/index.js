@@ -1,5 +1,5 @@
-import { getPageData } from "../data/api";
-import { DefaultLayout } from "../layouts";
+import { getPageData } from "data/api";
+import { DefaultLayout } from "layouts";
 
 export default ({ page, settings, theme }) => {
   process.browser && console.log({theme, settings});
