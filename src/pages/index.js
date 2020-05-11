@@ -6,7 +6,7 @@ export default ({ page, settings, theme }) => {
   return <DefaultLayout data={page} settings={settings} />;
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps = async ({ params }) => {
   const data = await getPageData("home");
   return {
     props: {
