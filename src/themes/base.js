@@ -1,28 +1,18 @@
-// Colours
-
-const colors = {
+export const colors = {
   black: "#000000",
   white: "#ffffff",
-  cream: "#f4f0eb",
-  yellow: "#F9ED96",
-  green: "#DDFE8F",
-  orange: "#F6D196",
-  purple: "#CEC4F5",
-  red: "#F9B5B1",
-  blue: "#A5E4F2",
-  cyan: "#8DEBC5",
 };
 
-// Typography
-
-const systemFonts =
+export const systemFonts =
   "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'";
 
-const fonts = {
-  body: `"Bw Aleta No 20 DEMO", ${systemFonts}`,
+export const monoFonts =
+  'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
+
+export const fonts = {
+  body: `${systemFonts}`,
   heading: "inherit",
-  monospace:
-    'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+  monospace: `${monoFonts}`,
 };
 
 const headingStyles = {
@@ -32,37 +22,11 @@ const headingStyles = {
 };
 
 export default {
-  initialColorModeName: "cream",
+  initialColorModeName: "default",
   colors: {
     ...colors,
-    text: colors.black,
-    background: colors.cream,
-    modes: {
-      yellow: {
-        background: colors.yellow,
-      },
-      green: {
-        background: colors.green,
-      },
-      brown: {
-        background: colors.brown,
-      },
-      orange: {
-        background: colors.orange,
-      },
-      cyan: {
-        background: colors.cyan,
-      },
-      red: {
-        background: colors.red,
-      },
-      blue: {
-        background: colors.blue,
-      },
-      purple: {
-        background: colors.purple,
-      },
-    },
+    text: colors.white,
+    background: colors.black,
   },
   fontSizes: [14, 16, 18, 26, 30, 42, 54, 62],
   fonts: {

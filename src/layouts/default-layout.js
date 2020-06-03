@@ -13,14 +13,14 @@ const modelToViewName = (modelName) =>
 
 export default function Page({ data, settings }) {
   const router = useRouter();
-  const banner = settings.banner.show == true;
+  // const banner = settings.banner.show == true;
   if (!router.isFallback && !data?.slug) {
     return <ErrorPage statusCode={404} />;
   }
   process.browser && console.log(data);
   return (
     <Fragment>
-      {banner ? <Banner text={settings.banner.text} /> : null}
+      {/* {banner ? <Banner text={settings.banner.text} /> : null} */}
       <Header />
       {router.isFallback ? (
         <p>Loading…</p>

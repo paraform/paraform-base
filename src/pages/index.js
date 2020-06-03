@@ -2,7 +2,7 @@ import { getPageData } from "data/api";
 import { DefaultLayout } from "layouts";
 
 export default ({ page, settings, theme }) => {
-  process.browser && console.log({theme, settings});
+  process.browser && console.log({ theme, settings });
   return <DefaultLayout data={page} settings={settings} />;
 };
 
