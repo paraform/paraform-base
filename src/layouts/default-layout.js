@@ -1,25 +1,26 @@
 /** @jsx jsx */
+import { Fragment } from "react";
 import { jsx, Box } from "theme-ui";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Head from "next/head";
 import * as sections from "./sections";
 import Header from "./header";
-import { Banner } from "../components";
+import { Banner } from "components";
 
 const modelToViewName = (modelName) =>
   modelName.replace(/^([a-z])/, (first) => first.toUpperCase());
 
 export default function Page({ data, settings }) {
   const router = useRouter();
-  const banner = settings.banner.show == true;
+  // const banner = settings.banner.show == true;
   if (!router.isFallback && !data?.slug) {
     return <ErrorPage statusCode={404} />;
   }
-  console.log(data);
+  process.browser && console.log(data);
   return (
-    <>
-      {banner ? <Banner text={settings.banner.text} /> : null}
+    <Fragment>
+      {/* {banner ? <Banner text={settings.banner.text} /> : null} */}
       <Header />
       {router.isFallback ? (
         <p>Loading…</p>
@@ -41,6 +42,6 @@ export default function Page({ data, settings }) {
           })}
         </Box>
       )}
-    </>
+    </Fragment>
   );
 }

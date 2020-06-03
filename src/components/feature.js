@@ -1,4 +1,5 @@
 /** @jsx jsx */
+import { Fragment } from 'react'
 import { jsx, Flex, Box, Heading } from "theme-ui";
 import RichText from "./rich-text";
 import Media from "./media";
@@ -8,7 +9,7 @@ function Feature(props) {
   const x1 = layout == "tripleFeature" ? 240 : 700;
   const x2 = layout == "tripleFeature" ? 480 : 1400;
   return (
-    <>
+    <Fragment>
       {featureItem?.map((feature, index) => {
         return (
           <Flex
@@ -92,7 +93,7 @@ function Feature(props) {
           </Flex>
         );
       })}
-    </>
+    </Fragment>
   );
 }
 

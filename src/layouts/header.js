@@ -1,17 +1,7 @@
 /** @jsx jsx */
 import { jsx, Flex, Box, IconButton, useColorMode } from "theme-ui";
-import { Logo, Drop } from "../components/svg";
-
-const modes = [
-  "cream",
-  "yellow",
-  "green",
-  "orange",
-  "cyan",
-  "red",
-  "blue",
-  "purple",
-];
+import { Logo, Drop } from "components/svg";
+import { modeList as modes } from "../themes";
 
 const Header = () => {
   const [mode, setMode] = useColorMode();
@@ -21,6 +11,10 @@ const Header = () => {
     const next = modes[(i + 1) % modes.length];
     setMode(next);
   };
+
+  console.log(mode);
+  console.log(modes);
+
   return (
     <Box
       as="header"
@@ -45,25 +39,27 @@ const Header = () => {
         <Box sx={{ height: [40, null, 60], pl: 2 }}>
           <Logo fill="white" />
         </Box>
-        <IconButton
-          aria-label="Toggle color mode"
-          onClick={cycleMode}
-          sx={{
-            ml: 2,
-            border: 1,
-            borderColor: "background",
-            bg: "black",
-            alignSelf: "center",
-            color: "background",
-            "&:focus": {
-              outline: "none",
-              boxShadow: (theme) => `${theme.shadows.outline}`,
-              transition: "all 0.2s",
-            },
-          }}
-        >
-          <Drop />
-        </IconButton>
+        {modes.length > 1 ? (
+          <IconButton
+            aria-label="Toggle color mode"
+            onClick={cycleMode}
+            sx={{
+              ml: 2,
+              border: 1,
+              borderColor: "background",
+              bg: "text",
+              alignSelf: "center",
+              color: "background",
+              "&:focus": {
+                outline: "none",
+                boxShadow: (theme) => `${theme.shadows.outline}`,
+                transition: "all 0.2s",
+              },
+            }}
+          >
+            <Drop />
+          </IconButton>
+        ) : null}
       </Flex>
     </Box>
   );
