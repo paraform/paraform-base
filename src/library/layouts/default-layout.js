@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Head from "next/head";
 import * as defaultSections from ".";
-import { Header } from "../components";
+import { Header, Banner } from "../components";
 
 const modelToViewName = (modelName) =>
   modelName.replace(/^([a-z])/, (first) => first.toUpperCase());
@@ -20,8 +20,7 @@ export default function Page({
   colorModeSwitch,
 }) {
   const sections = { ...defaultSections, ...customSections };
-  console.log(sections);
-
+  const banner = settings?.banner.show == true;
   const router = useRouter();
   if (!router.isFallback && !data?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -31,14 +30,15 @@ export default function Page({
     <Fragment>
       <Head>
         <title>
-          {data.title} | {settings.name}{" "}
+          {data?.title} | {settings?.name}
         </title>
-        <meta name="description" content={data.description} />
+        <meta name="description" content={data?.description} />
       </Head>
       {router.isFallback ? (
         <p>Loading…</p>
       ) : (
         <>
+          {banner ? <Banner text={settings.banner.text} /> : null}
           <Header
             logo={logo}
             colorModeSwitchIcon={colorModeSwitchIcon}
