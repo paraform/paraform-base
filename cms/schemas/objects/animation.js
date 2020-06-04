@@ -1,5 +1,5 @@
 import React from "react";
-import Lottie from "../../../src/components/lottie";
+import Lottie from "../../../src/library/components/lottie";
 import { MdPlayCircleOutline } from "react-icons/md";
 
 export default {
