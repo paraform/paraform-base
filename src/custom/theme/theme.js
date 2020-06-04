@@ -8,9 +8,6 @@ const colors = merge(defaultColors, customColors);
 export const uiColors = {
   background: colors.black,
   text: colors.white,
-  logoDark: "#ffffff",
-  logoMid: "#f2f2f2",
-  logoLight: "#f8f8f8",
 };
 
 export const initialColorMode = "default";

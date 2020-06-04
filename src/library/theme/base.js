@@ -27,6 +27,9 @@ export default {
     ...defaultColors,
     text: defaultColors.white,
     background: defaultColors.black,
+    logoDark: defaultColors.white,
+    logoMid: "#f2f2f2",
+    logoLight: "#f8f8f8",
   },
   fontSizes: [14, 16, 18, 26, 30, 42, 54, 62],
   fonts: {
