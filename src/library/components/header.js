@@ -1,20 +1,8 @@
 /** @jsx jsx */
-import { jsx, Flex, Box, IconButton, useColorMode } from "theme-ui";
-import { Drop } from "./svg";
-import { initialColorMode, modes as extraModes } from "custom";
+import { jsx, Flex, Box } from "theme-ui";
+import ColorSwitch from "./color-switch";
 
-const Header = () => {
-  const modes = [initialColorMode, ...Object.keys(extraModes)];
-  const [mode, setMode] = useColorMode();
-
-  const cycleMode = (e) => {
-    const i = modes.indexOf(mode);
-    const next = modes[(i + 1) % modes.length];
-    setMode(next);
-  };
-
-  console.log(modes);
-
+const Header = ({ colorModeSwitchIcon, logo, modes }) => {
   return (
     <Box
       as="header"
@@ -36,28 +24,8 @@ const Header = () => {
           justifyContent: "space-between",
         }}
       >
-        <Box sx={{ height: [40, null, 60], pl: 2 }}></Box>
-        {modes.length > 1 ? (
-          <IconButton
-            aria-label="Toggle color mode"
-            onClick={cycleMode}
-            sx={{
-              ml: 2,
-              border: 1,
-              borderColor: "background",
-              bg: "text",
-              alignSelf: "center",
-              color: "background",
-              "&:focus": {
-                outline: "none",
-                boxShadow: (theme) => `${theme.shadows.outline}`,
-                transition: "all 0.2s",
-              },
-            }}
-          >
-            <Drop />
-          </IconButton>
-        ) : null}
+        {logo}
+        <ColorSwitch icon={colorModeSwitchIcon} modes={modes} />
       </Flex>
     </Box>
   );

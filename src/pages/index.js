@@ -1,6 +1,7 @@
-import { DefaultLayout, getPageData } from "library";
+import { getPageData } from "library";
+import { DefaultLayout } from "custom";
 
-export default ({ page, settings, theme }) => {
+export default ({ page, settings }) => {
   process.browser && console.log({ settings });
   return <DefaultLayout data={page} settings={settings} />;
 };

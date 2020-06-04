@@ -1,2 +1,1 @@
-export { default as theme } from "./theme";
-export { initialColorMode, modes } from "./colors";
+export { default as theme, initialColorMode, modes } from "./theme";
