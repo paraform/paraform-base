@@ -40,7 +40,8 @@ const heroSection = `
     heading, 
     subheading, 
     ${media},
-    ${appearance} 
+    ${appearance} ,
+    video
   }
 `;
 
