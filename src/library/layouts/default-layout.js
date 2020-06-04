@@ -20,7 +20,7 @@ export default function Page({ data, settings }) {
   return (
     <Fragment>
       {/* {banner ? <Banner text={settings.banner.text} /> : null} */}
-      {/* <Header /> */}
+      <Header />
       {router.isFallback ? (
         <p>Loading…</p>
       ) : (

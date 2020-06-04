@@ -1,18 +1,19 @@
 /** @jsx jsx */
 import { jsx, Flex, Box, IconButton, useColorMode } from "theme-ui";
 import { Drop } from "./svg";
-import { initialColorMode, modes } from "custom";
-
-const modesList = [initialColorMode];
+import { initialColorMode, modes as extraModes } from "custom";
 
 const Header = () => {
+  const modes = [initialColorMode, ...Object.keys(extraModes)];
   const [mode, setMode] = useColorMode();
 
   const cycleMode = (e) => {
-    const i = modesList.indexOf(mode);
-    const next = modesList[(i + 1) % modesList.length];
+    const i = modes.indexOf(mode);
+    const next = modes[(i + 1) % modes.length];
     setMode(next);
   };
+
+  console.log(modes);
 
   return (
     <Box
