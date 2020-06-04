@@ -1,8 +1,7 @@
-import { getPageData } from "data/api";
-import { DefaultLayout } from "layouts";
+import { DefaultLayout, getPageData } from "library";
 
 export default ({ page, settings, theme }) => {
-  process.browser && console.log({ theme, settings });
+  process.browser && console.log({ settings });
   return <DefaultLayout data={page} settings={settings} />;
 };
 

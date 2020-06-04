@@ -2,7 +2,7 @@ import sanityClient from "@sanity/client";
 
 const {
   api: { projectId },
-} = require("../../cms/sanity.json");
+} = require("../../../cms/sanity.json");
 
 export default sanityClient({
   projectId,

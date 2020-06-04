@@ -1,15 +1,10 @@
-export const colors = {
-  black: "#000000",
-  white: "#ffffff",
-};
-
 export const systemFonts =
   "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'";
 
 export const monoFonts =
   'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
 
-export const fonts = {
+export const defaultFonts = {
   body: `${systemFonts}`,
   heading: "inherit",
   monospace: `${monoFonts}`,
@@ -21,16 +16,21 @@ const headingStyles = {
   mt: 0,
 };
 
+export const defaultColors = {
+  black: "#000000",
+  white: "#ffffff",
+};
+
 export default {
   initialColorModeName: "default",
   colors: {
-    ...colors,
-    text: colors.white,
-    background: colors.black,
+    ...defaultColors,
+    text: defaultColors.white,
+    background: defaultColors.black,
   },
   fontSizes: [14, 16, 18, 26, 30, 42, 54, 62],
   fonts: {
-    ...fonts,
+    ...defaultFonts,
   },
   lineHeights: {
     normal: "normal",

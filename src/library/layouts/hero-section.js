@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Box, Flex, Heading } from "theme-ui";
-import { Section, RichText, Media } from "components";
+import { Section, RichText, Media } from "library";
 
 function HeroSection(props) {
   const { heading, subheading, media, appearance } = props;

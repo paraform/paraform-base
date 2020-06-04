@@ -1,19 +1,18 @@
 /** @jsx jsx */
 import { jsx, Flex, Box, IconButton, useColorMode } from "theme-ui";
-import { Logo, Drop } from "components/svg";
-import { modeList as modes } from "../themes";
+import { Drop } from "./svg";
+import { initialColorMode, modes } from "custom";
+
+const modesList = [initialColorMode];
 
 const Header = () => {
   const [mode, setMode] = useColorMode();
 
   const cycleMode = (e) => {
-    const i = modes.indexOf(mode);
-    const next = modes[(i + 1) % modes.length];
+    const i = modesList.indexOf(mode);
+    const next = modesList[(i + 1) % modesList.length];
     setMode(next);
   };
-
-  console.log(mode);
-  console.log(modes);
 
   return (
     <Box
@@ -36,9 +35,7 @@ const Header = () => {
           justifyContent: "space-between",
         }}
       >
-        <Box sx={{ height: [40, null, 60], pl: 2 }}>
-          <Logo fill="white" />
-        </Box>
+        <Box sx={{ height: [40, null, 60], pl: 2 }}></Box>
         {modes.length > 1 ? (
           <IconButton
             aria-label="Toggle color mode"

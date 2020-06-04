@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Flex, Grid, Heading } from "theme-ui";
-import { Section, Feature } from "components";
+import { Section, Feature } from "library";
 
 function FeatureSection(props) {
   const { features, heading, appearance } = props;

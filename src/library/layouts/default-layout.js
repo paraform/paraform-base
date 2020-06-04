@@ -4,9 +4,8 @@ import { jsx, Box } from "theme-ui";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Head from "next/head";
-import * as sections from "./sections";
-import Header from "./header";
-import { Banner } from "components";
+import * as sections from ".";
+import { Header } from "library/components";
 
 const modelToViewName = (modelName) =>
   modelName.replace(/^([a-z])/, (first) => first.toUpperCase());
@@ -21,7 +20,7 @@ export default function Page({ data, settings }) {
   return (
     <Fragment>
       {/* {banner ? <Banner text={settings.banner.text} /> : null} */}
-      <Header />
+      {/* <Header /> */}
       {router.isFallback ? (
         <p>Loading…</p>
       ) : (

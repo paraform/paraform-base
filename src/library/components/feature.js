@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Fragment } from 'react'
+import { Fragment } from "react";
 import { jsx, Flex, Box, Heading } from "theme-ui";
 import RichText from "./rich-text";
 import Media from "./media";
