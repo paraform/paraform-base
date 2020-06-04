@@ -19,6 +19,6 @@ export default function Page({ data, settings }) {
       colorModeSwitch={true}
       colorModeSwitchIcon={<Drop />}
       customSections={sections}
-    />
+    ></DefaultLayout>
   );
 }

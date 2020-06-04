@@ -18,6 +18,7 @@ export default function Page({
   customSections,
   colorModeSwitchIcon,
   colorModeSwitch,
+  children,
 }) {
   const sections = { ...defaultSections, ...customSections };
   const banner = settings?.banner.show == true;
@@ -54,6 +55,7 @@ export default function Page({
               }
             })}
           </Box>
+          {children}
         </>
       )}
     </Fragment>
