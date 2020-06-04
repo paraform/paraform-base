@@ -2,6 +2,7 @@ import { merge } from "theme-ui";
 import { baseTheme, defaultColors } from "library";
 import { default as customColors } from "./colors";
 import { default as fonts } from "./fonts";
+import { default as typography } from "./typography";
 
 const colors = merge(defaultColors, customColors);
 
@@ -40,4 +41,5 @@ export default merge(baseTheme, {
   initialColorModeName: initialColorMode,
   colors: { ...customColors, ...uiColors, modes },
   fonts,
+  ...typography,
 });
