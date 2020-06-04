@@ -2,8 +2,7 @@ import React from "react";
 import NextApp from "next/app";
 import { ThemeProvider } from "theme-ui";
 
-import { Global } from "styles";
-import { theme } from "themes";
+import { Global, theme } from "custom";
 
 export default class App extends NextApp {
   render() {

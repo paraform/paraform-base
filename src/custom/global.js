@@ -34,14 +34,10 @@ const globalStyles = (theme) => css`
     font-weight: bold;
     font-style: normal;
   }
-  ,
-  body {
-    -webkit-font-smoothing: antialiased;
-    font-feature-settings: "kern";
-  }
+
   ::selection {
-    color: ${theme.colors.white};
-    background: ${theme.colors.black};
+    color: ${theme.colors.background};
+    background: ${theme.colors.text};
   }
 `;
 const GlobalStyles = () => <Global styles={globalStyles} />;

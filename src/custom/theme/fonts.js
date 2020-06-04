@@ -1,5 +1,5 @@
 import { merge } from "theme-ui";
-import { systemFonts, monoFonts, fonts as defaultFonts } from "./base";
+import { systemFonts, monoFonts, defaultFonts } from "library";
 
 const customFont = "Bw Aleta No 20 DEMO";
 
