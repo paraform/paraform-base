@@ -7,7 +7,8 @@ function Media(props) {
   return (
     <Flex
       sx={{
-        width: "auto",
+        width: "100%",
+        height: "100%",
         borderRadius: shadow ? 32 : 0,
         boxShadow: shadow
           ? "0.625rem 0.875rem 2.5rem rgba(0, 0, 0, 0.2)"
@@ -23,7 +24,7 @@ function Media(props) {
             height: "100%",
             width: "100%",
             objectFit: ["contain", null, "cover"],
-            objectPosition: ["top", null, "bottom"],
+            objectPosition: ["center bottom", null, "bottom"],
           }}
         />
       ) : null}

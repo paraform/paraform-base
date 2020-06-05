@@ -5,3 +5,4 @@ export { default as Media } from "./media";
 export { default as Section } from "./section";
 export { default as Banner } from "./banner";
 export { default as Header } from "./header";
+export { default as VideoPlayer } from "./video-player";

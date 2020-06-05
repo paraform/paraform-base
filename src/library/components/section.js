@@ -2,13 +2,14 @@
 import { jsx, Box } from "theme-ui";
 
 function Section(props) {
-  const { backgroundColor, backgroundGradient, children } = props;
+  const { backgroundColor, backgroundGradient, textColor, children } = props;
 
   return (
     <Box
       as="section"
       sx={{
-        bg: backgroundColor,
+        bg: backgroundColor ? backgroundColor : "background",
+        color: textColor ? textColor : "text",
       }}
     >
       <Box

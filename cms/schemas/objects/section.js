@@ -11,6 +11,14 @@ export default {
   ],
   fields: [
     {
+      name: "textColor",
+      title: "Text Color",
+      description: "Add a text color",
+      fieldset: "appearance",
+      type: "reference",
+      to: [{ type: "brandColors" }],
+    },
+    {
       name: "backgroundColor",
       title: "Background Color",
       description: "Add a background color",

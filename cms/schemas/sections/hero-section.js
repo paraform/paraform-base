@@ -37,6 +37,11 @@ export default {
       name: "appearance",
       type: "section",
     },
+    {
+      title: "Background Video",
+      name: "video",
+      type: "file",
+    },
   ],
   preview: {
     select: {

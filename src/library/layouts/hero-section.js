@@ -1,77 +1,95 @@
 /** @jsx jsx */
 import { jsx, Box, Flex, Heading } from "theme-ui";
-import { Section, RichText, Media } from "library";
+import { Section, RichText, Media, VideoPlayer } from "library";
 
 function HeroSection(props) {
-  const { heading, subheading, media, appearance } = props;
+  const { heading, subheading, media, appearance, video } = props;
   const x1 = 750;
   const x2 = 1500;
   return (
     <Section
+      textColor={appearance?.textColor}
       backgroundColor={appearance?.backgroundColor}
       backgroundGradient={appearance?.backgroundGradient}
     >
       <Flex
         sx={{
-          maxWidth: "1200px",
-          px: [2, 0],
-          m: "0 auto",
-          flexDirection: ["column", null, "row"],
           position: "relative",
-          height: ["auto", null, "100vh"],
-          minHeight: 550,
-          maxHeight: ["none", null, "700px"],
+          overflow: "hidden",
           width: "100%",
-          flexDirection: ["column", null, "row"],
+          height: "auto",
         }}
       >
+        {video ? (
+          <Box
+            sx={{
+              position: "absolute",
+              zIndex: "0",
+              height: "100%",
+              width: "100%",
+              minHeight: "100%",
+              maxHeight: ["none", null, "700px"],
+            }}
+          >
+            <VideoPlayer url={video} />
+          </Box>
+        ) : null}
+
         <Flex
           sx={{
-            height: "100%",
-            width: ["100%", null, "60%", "55%"],
-            px: [4, 5],
-            justifyContent: ["flex-start", null, "center"],
-            alignItems: ["flex-start", null, "flex-start"],
-            flexDirection: "column",
+            maxWidth: "1200px",
+            m: "0 auto",
+            flexDirection: ["column", null, "row"],
             position: "relative",
-            zIndex: "docked",
+            zIndex: "1",
+            alignContent: "center",
+            justifyContent: ["flex-start", null, "center"],
+            height: "100%",
+            width: "100%",
           }}
         >
           <Flex
             sx={{
-              flexDirection: "column",
-              maxWidth: ["100%", null, "550px"],
-              pt: [7, null, 0],
-              pr: [0, null, null, 4],
+              width: ["100%", null, "60%", "55%"],
+              px: 5,
+              alignItems: ["space-between", null, "center"],
             }}
           >
-            <Heading as="h1" variant="heading1">
-              {heading}
-            </Heading>
-            {subheading ? (
-              <Box sx={{ fontSize: [2, null, 3] }}>
-                <RichText content={subheading} />
-              </Box>
-            ) : null}
+            <Flex
+              sx={{
+                flexDirection: "column",
+                pt: [7, null, 0],
+              }}
+            >
+              <Heading as="h1" variant="heading1">
+                {heading}
+              </Heading>
+              {subheading ? (
+                <Box sx={{ fontSize: [2, null, 3] }}>
+                  <RichText content={subheading} />
+                </Box>
+              ) : null}
+            </Flex>
           </Flex>
-        </Flex>
-        <Flex
-          sx={{
-            width: ["100%", null, "50%", "45%"],
-          }}
-        >
-          {media?.map((item, index) => {
-            return (
-              <Media
-                key={index}
-                image={item.image}
-                alt={item.alt}
-                data={item.data}
-                x1={x1}
-                x2={x2}
-              />
-            );
-          })}
+          <Flex
+            sx={{
+              minHeight: ["auto", "620px", "700px"],
+              width: ["100%", null, "50%", "45%"],
+            }}
+          >
+            {media?.map((item, index) => {
+              return (
+                <Media
+                  key={index}
+                  image={item.image}
+                  alt={item.alt}
+                  data={item.data}
+                  x1={x1}
+                  x2={x2}
+                />
+              );
+            })}
+          </Flex>
         </Flex>
       </Flex>
     </Section>

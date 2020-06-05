@@ -18,6 +18,7 @@ export default function Page({
   customSections,
   colorModeSwitchIcon,
   colorModeSwitch,
+  bannerBackgroundGrad,
   children,
 }) {
   const sections = { ...defaultSections, ...customSections };
@@ -39,7 +40,12 @@ export default function Page({
         <p>Loading…</p>
       ) : (
         <>
-          {banner ? <Banner text={settings.banner.text} /> : null}
+          {banner ? (
+            <Banner
+              text={settings.banner.text}
+              backgroundGrad={bannerBackgroundGrad}
+            />
+          ) : null}
           <Header
             logo={logo}
             colorModeSwitchIcon={colorModeSwitchIcon}

@@ -19,6 +19,7 @@ export default function Page({ data, settings }) {
       colorModeSwitch={true}
       colorModeSwitchIcon={<Drop />}
       customSections={sections}
+      bannerBackgroundGrad={true}
     ></DefaultLayout>
   );
 }

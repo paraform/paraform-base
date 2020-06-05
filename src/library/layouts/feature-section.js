@@ -6,6 +6,7 @@ function FeatureSection(props) {
   const { features, heading, appearance } = props;
   return (
     <Section
+      textColor={appearance?.textColor}
       backgroundColor={appearance?.backgroundColor}
       backgroundGradient={appearance?.backgroundGradient}
     >

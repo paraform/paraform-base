@@ -29,8 +29,9 @@ const media = `
 
 const appearance = `
  'appearance': appearance {
-  "backgroundColor": backgroundColor->color.hex,
-  backgroundGradient
+   "backgroundColor": backgroundColor->color.hex,
+   "textColor": textColor->color.hex,
+   backgroundGradient
  }
 `;
 
@@ -40,7 +41,8 @@ const heroSection = `
     heading, 
     subheading, 
     ${media},
-    ${appearance} 
+    ${appearance} ,
+    "video": video.asset->url
   }
 `;
 
