@@ -41,7 +41,7 @@ const heroSection = `
     subheading, 
     ${media},
     ${appearance} ,
-    video
+    "video": video.asset->url
   }
 `;
 

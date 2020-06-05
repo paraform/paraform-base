@@ -40,7 +40,7 @@ export default {
     {
       title: "Background Video",
       name: "video",
-      type: "string",
+      type: "file",
     },
   ],
   preview: {
