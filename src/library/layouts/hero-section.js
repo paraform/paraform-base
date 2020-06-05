@@ -8,8 +8,8 @@ function HeroSection(props) {
   const x2 = 1500;
   return (
     <Section
-      backgroundColor={appearance.backgroundColor}
-      backgroundGradient={appearance.backgroundGradient}
+      backgroundColor={appearance?.backgroundColor}
+      backgroundGradient={appearance?.backgroundGradient}
     >
       <Flex
         sx={{
