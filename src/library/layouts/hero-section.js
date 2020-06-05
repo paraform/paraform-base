@@ -8,6 +8,7 @@ function HeroSection(props) {
   const x2 = 1500;
   return (
     <Section
+      textColor={appearance?.textColor}
       backgroundColor={appearance?.backgroundColor}
       backgroundGradient={appearance?.backgroundGradient}
     >

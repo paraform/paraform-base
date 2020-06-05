@@ -29,8 +29,9 @@ const media = `
 
 const appearance = `
  'appearance': appearance {
-  "backgroundColor": backgroundColor->color.hex,
-  backgroundGradient
+   "backgroundColor": backgroundColor->color.hex,
+   "textColor": textColor->color.hex,
+   backgroundGradient
  }
 `;
 
