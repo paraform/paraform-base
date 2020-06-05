@@ -6,8 +6,8 @@ function FeatureSection(props) {
   const { features, heading, appearance } = props;
   return (
     <Section
-      backgroundColor={appearance.backgroundColor}
-      backgroundGradient={appearance.backgroundGradient}
+      backgroundColor={appearance?.backgroundColor}
+      backgroundGradient={appearance?.backgroundGradient}
     >
       <Flex
         sx={{
