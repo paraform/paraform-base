@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Flex, Box } from "theme-ui";
+import { jsx, Flex } from "theme-ui";
 import { keyframes } from "@emotion/core";
 import RichText from "./rich-text";
 
@@ -18,6 +18,7 @@ export default function Banner({
         justifyContent: "center",
         textAlign: "center",
         fontSize: 0,
+        px: 5,
         background: backgroundGrad
           ? "linear-gradient(270deg, #7cffdd, #ffb578, #cbacff, #acddff, #ffacbe)"
           : null,
@@ -27,7 +28,7 @@ export default function Banner({
           : null,
       }}
     >
-      <RichText sx={{ px: 5 }} content={text} />
+      <RichText content={text} />
     </Flex>
   );
 }
