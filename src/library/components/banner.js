@@ -1,20 +1,39 @@
 /** @jsx jsx */
 import { jsx, Flex, Box } from "theme-ui";
+import { keyframes } from "@emotion/core";
 import RichText from "./rich-text";
 
-export default function Banner({ text }) {
+export default function Banner({
+  text,
+  textColor,
+  backgroundColor,
+  backgroundGrad,
+}) {
   return (
     <Flex
+      color={textColor ? textColor : "background"}
+      bg={backgroundColor ? backgroundColor : "text"}
       sx={{
-        bg: "text",
         width: "100%",
         justifyContent: "center",
-        px: 5,
+        textAlign: "center",
+        fontSize: 0,
+        background: backgroundGrad
+          ? "linear-gradient(270deg, #7cffdd, #ffb578, #cbacff, #acddff, #ffacbe)"
+          : null,
+        backgroundSize: backgroundGrad ? "1000% 1000%" : null,
+        animation: backgroundGrad
+          ? `${gradientAnimation} 30s ease infinite`
+          : null,
       }}
     >
-      <Box sx={{ textAlign: "center", fontSize: 0, color: "background" }}>
-        <RichText content={text} />
-      </Box>
+      <RichText sx={{ px: 5 }} content={text} />
     </Flex>
   );
 }
+
+const gradientAnimation = keyframes`
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+`;
