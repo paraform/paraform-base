@@ -218,9 +218,9 @@ export default function Subscribe({ button, input, contactEmail, url }) {
                   </Box>
                   <Box
                     sx={{
-                      mt: [3, 0],
-                      ml: [0, 3],
-                      width: ["100%", "auto"],
+                      mt: [3, null, 0],
+                      ml: [0, null, 3],
+                      width: ["100%", null, "auto"],
                       display: "block",
                       flexShrink: "0",
                     }}

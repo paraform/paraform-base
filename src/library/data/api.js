@@ -79,10 +79,24 @@ const featureSection = `
   }
 `;
 
+const subscribeSection = `
+  _type == 'subscribeSection' => {
+    _type, 
+    heading, 
+    subheading, 
+    ${appearance} ,
+    contactEmail,
+    mailchimpUrl,
+    buttonText,
+    inputText,
+  }
+`;
+
 const sectionQuery = `
   'content': content[] | ({
    ${heroSection},
-   ${featureSection}
+   ${featureSection},
+   ${subscribeSection}
   }),
 `;
 
