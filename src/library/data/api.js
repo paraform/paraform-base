@@ -42,7 +42,12 @@ const heroSection = `
     subheading, 
     ${media},
     ${appearance} ,
-    "video": video.asset->url
+    "video": video.asset->url,
+    subscribeField,
+    contactEmail,
+    mailchimpUrl,
+    buttonText,
+    inputText,
   }
 `;
 
