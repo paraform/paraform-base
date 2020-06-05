@@ -42,7 +42,12 @@ const heroSection = `
     subheading, 
     ${media},
     ${appearance} ,
-    "video": video.asset->url
+    "video": video.asset->url,
+    subscribeField,
+    contactEmail,
+    mailchimpUrl,
+    buttonText,
+    inputText,
   }
 `;
 
@@ -74,10 +79,24 @@ const featureSection = `
   }
 `;
 
+const subscribeSection = `
+  _type == 'subscribeSection' => {
+    _type, 
+    heading, 
+    subheading, 
+    ${appearance} ,
+    contactEmail,
+    mailchimpUrl,
+    buttonText,
+    inputText,
+  }
+`;
+
 const sectionQuery = `
   'content': content[] | ({
    ${heroSection},
-   ${featureSection}
+   ${featureSection},
+   ${subscribeSection}
   }),
 `;
 

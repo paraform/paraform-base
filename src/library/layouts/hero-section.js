@@ -1,9 +1,20 @@
 /** @jsx jsx */
 import { jsx, Box, Flex, Heading } from "theme-ui";
-import { Section, RichText, Media, VideoPlayer } from "library";
+import { Section, RichText, Media, VideoPlayer, Subscribe } from "library";
 
 function HeroSection(props) {
-  const { heading, subheading, media, appearance, video } = props;
+  const {
+    heading,
+    subheading,
+    media,
+    appearance,
+    video,
+    subscribeField,
+    contactEmail,
+    mailchimpUrl,
+    buttonText,
+    inputText,
+  } = props;
   const x1 = 750;
   const x2 = 1500;
   return (
@@ -68,6 +79,14 @@ function HeroSection(props) {
                 <Box sx={{ fontSize: [2, null, 3] }}>
                   <RichText content={subheading} />
                 </Box>
+              ) : null}
+              {subscribeField ? (
+                <Subscribe
+                  button={buttonText}
+                  input={inputText}
+                  contactEmail={contactEmail}
+                  url={mailchimpUrl}
+                />
               ) : null}
             </Flex>
           </Flex>

@@ -1,10 +1,10 @@
-import { MdArtTrack } from "react-icons/md";
+import { MdEmail } from "react-icons/md";
 
 export default {
   type: "document",
-  name: "heroSection",
-  title: "Hero Section",
-  icon: MdArtTrack,
+  name: "subscribeSection",
+  title: "Subscribe Section",
+  icon: MdEmail,
   fieldsets: [
     {
       title: "Email Subscribe",
@@ -24,36 +24,9 @@ export default {
       type: "simpleText",
     },
     {
-      title: "Media",
-      name: "media",
-      type: "array",
-      of: [
-        { type: "imageAsset" },
-        {
-          title: "Animation",
-          name: "animation",
-          type: "reference",
-          description: "Add an animation",
-          to: [{ type: "animation" }],
-        },
-      ],
-      validation: (Rule) => Rule.max(1),
-    },
-    {
       title: "Appearance",
       name: "appearance",
       type: "section",
-    },
-    {
-      title: "Background Video",
-      name: "video",
-      type: "file",
-    },
-    {
-      title: "Subscription Field",
-      name: "subscribeField",
-      type: "boolean",
-      fieldset: "subscribe",
     },
     {
       title: "Contact Email",
@@ -89,7 +62,7 @@ export default {
     },
     prepare({ title }) {
       return {
-        title: "Hero Section",
+        title: "Subscribe Section",
         subtitle: title,
       };
     },
