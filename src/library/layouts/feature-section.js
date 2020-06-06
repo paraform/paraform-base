@@ -9,13 +9,13 @@ function FeatureSection(props) {
       textColor={appearance?.textColor}
       backgroundColor={appearance?.backgroundColor}
       backgroundGradient={appearance?.backgroundGradient}
+      spacing={appearance?.spacing}
     >
       <Flex
         sx={{
           maxWidth: "1200px",
           margin: "0 auto",
           px: [4, 5],
-          py: 6,
           width: "100%",
           flexDirection: "column",
         }}
