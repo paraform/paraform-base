@@ -168,3 +168,5 @@ sketch
 
 .now
 .vercel
+cms/.env.development
+.env.development
