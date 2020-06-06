@@ -14,13 +14,13 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/base": "^1.149.10",
+    "@sanity/base": "^1.149.15",
     "@sanity/color-input": "^1.149.7",
-    "@sanity/components": "^1.149.10",
-    "@sanity/core": "^1.149.12",
-    "@sanity/default-layout": "^1.149.10",
+    "@sanity/components": "^1.149.15",
+    "@sanity/core": "^1.149.13",
+    "@sanity/default-layout": "^1.149.15",
     "@sanity/default-login": "^1.149.11",
-    "@sanity/desk-tool": "^1.149.10",
+    "@sanity/desk-tool": "^1.149.15",
     "@sanity/vision": "^1.149.0",
     "lottie-web": "^5.6.8",
     "prop-types": "^15.6",
