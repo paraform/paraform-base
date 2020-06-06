@@ -52,12 +52,6 @@ export default {
       fieldset: "appearance",
     },
     {
-      title: "Background Video",
-      name: "video",
-      type: "file",
-      fieldset: "appearance",
-    },
-    {
       title: "Subscription Field",
       name: "subscribeField",
       type: "boolean",

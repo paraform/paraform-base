@@ -23,6 +23,11 @@ export default {
       type: "string",
     },
     {
+      name: "backgroundVideo",
+      title: "Background Video",
+      type: "string",
+    },
+    {
       title: "Section Spacing",
       description: "Add padding to the top and bottom of a section",
       name: "spacing",

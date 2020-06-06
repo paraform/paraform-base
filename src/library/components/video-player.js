@@ -9,11 +9,9 @@ const VideoPlayer = ({ url }) => {
       playing
       loop
       playsinline
-      sx={{
-        "& video": {
-          objectFit: "cover",
-          width: "100%",
-          minHeight: "100%",
+      config={{
+        vimeo: {
+          playerOptions: { background: true },
         },
       }}
       width="100%"

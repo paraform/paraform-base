@@ -8,7 +8,6 @@ function HeroSection(props) {
     subheading,
     media,
     appearance,
-    video,
     subscribeField,
     contactEmail,
     mailchimpUrl,
@@ -22,6 +21,7 @@ function HeroSection(props) {
       textColor={appearance?.textColor}
       backgroundColor={appearance?.backgroundColor}
       backgroundGradient={appearance?.backgroundGradient}
+      backgroundVideo={appearance.backgroundVideo}
       spacing={appearance?.spacing}
     >
       <Flex
@@ -32,21 +32,6 @@ function HeroSection(props) {
           height: "auto",
         }}
       >
-        {video ? (
-          <Box
-            sx={{
-              position: "absolute",
-              zIndex: "0",
-              height: "100%",
-              width: "100%",
-              minHeight: "100%",
-              maxHeight: ["none", null, "700px"],
-            }}
-          >
-            <VideoPlayer url={video} />
-          </Box>
-        ) : null}
-
         <Flex
           sx={{
             maxWidth: "1200px",

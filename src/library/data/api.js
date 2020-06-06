@@ -32,6 +32,7 @@ const appearance = `
    "backgroundColor": backgroundColor->color.hex,
    "textColor": textColor->color.hex,
    backgroundGradient,
+   backgroundVideo,
    spacing
  }
 `;
