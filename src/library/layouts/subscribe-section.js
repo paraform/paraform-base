@@ -7,6 +7,7 @@ function SubscribeSection(props) {
     heading,
     subheading,
     appearance,
+    spacing,
     contactEmail,
     mailchimpUrl,
     buttonText,
@@ -18,6 +19,7 @@ function SubscribeSection(props) {
       textColor={appearance?.textColor}
       backgroundColor={appearance?.backgroundColor}
       backgroundGradient={appearance?.backgroundGradient}
+      spacing={appearance?.spacing}
     >
       <Flex
         sx={{
@@ -28,7 +30,6 @@ function SubscribeSection(props) {
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
-          py: 7,
           px: [5, 6, 0],
         }}
       >

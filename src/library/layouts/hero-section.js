@@ -22,6 +22,7 @@ function HeroSection(props) {
       textColor={appearance?.textColor}
       backgroundColor={appearance?.backgroundColor}
       backgroundGradient={appearance?.backgroundGradient}
+      spacing={appearance?.spacing}
     >
       <Flex
         sx={{

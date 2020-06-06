@@ -28,6 +28,7 @@ export default function Page({
     return <ErrorPage statusCode={404} />;
   }
   process.browser && console.log(data);
+  console.log(data);
   return (
     <Fragment>
       <Head>

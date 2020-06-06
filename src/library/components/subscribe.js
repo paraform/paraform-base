@@ -122,7 +122,7 @@ export default function Subscribe({ button, input, contactEmail, url }) {
                     flexDirection: ["column", null, "row"],
                     position: "relative",
                     alignItems: "center",
-                    my: [4, null, null, 2],
+                    mt: [4, null, null, 2],
                     maxWidth: ["100%", null, "500px"],
                     width: "100%",
                   }}

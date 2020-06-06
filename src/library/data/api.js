@@ -31,7 +31,8 @@ const appearance = `
  'appearance': appearance {
    "backgroundColor": backgroundColor->color.hex,
    "textColor": textColor->color.hex,
-   backgroundGradient
+   backgroundGradient,
+   spacing
  }
 `;
 
