@@ -82,6 +82,11 @@ export default {
       type: "string",
     },
     {
+      title: "Show Heading?",
+      name: "showHeading",
+      type: "boolean",
+    },
+    {
       title: "Features",
       name: "features",
       type: "array",

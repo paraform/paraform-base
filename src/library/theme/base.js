@@ -19,6 +19,31 @@ const headingStyles = {
 export const defaultColors = {
   black: "#000000",
   white: "#ffffff",
+  primary: {
+    50: "#ece6ff",
+    100: "#c6b3ff",
+    200: "#a180ff",
+    300: "#7b4dff",
+    400: "#6833ff",
+    500: "#3333ee",
+    600: "#3b00e6",
+    700: "#2e00b3",
+    800: "#210080",
+    900: "#14004c",
+    alpha: { 400: "rgba(123,77,255, 0.3)", 500: "rgba(51,51,238, 0.3)" },
+  },
+  grey: {
+    50: "#fafafa",
+    100: "#f5f5f5",
+    200: "#eeeeee",
+    300: "#e0e0e0",
+    400: "#bdbdbd",
+    500: "#9e9e9e",
+    600: "#757575",
+    700: "#616161",
+    800: "#424242",
+    900: "#212121",
+  },
 };
 
 export default {
@@ -50,28 +75,42 @@ export default {
     heading1: {
       ...headingStyles,
       fontSize: [5, null, null, 6],
+      mb: 5,
     },
     heading2: {
       ...headingStyles,
       fontSize: [4, 5],
+      mb: 4,
     },
     heading3: {
       ...headingStyles,
       fontSize: [3, 4],
-      // fontWeight: 300,
+      mb: 4,
     },
     heading4: {
       ...headingStyles,
       fontSize: [3],
+      mb: 3,
     },
     heading5: {
       ...headingStyles,
       fontSize: [1, 2],
+      mb: 3,
+    },
+    caption: {
+      fontSize: 0,
+      lineHeight: "body",
+    },
+    overline: {
+      fontSize: 0,
+      lineHeight: "body",
+      textTransform: "uppercase",
+      mb: 3,
     },
     large: {
-      fontSize: 2,
-      lineHeight: "shorter",
-      mt: 0,
+      fontSize: 3,
+      lineHeight: "body",
+      p: 0,
       mb: 4,
     },
   },
@@ -96,6 +135,14 @@ export default {
       color: "text",
       bg: "background",
       lineHeight: "body",
+    },
+    a: {
+      color: "text",
+      cursor: "pointer",
+      textDecoration: "underline",
+      "&:hover": {
+        color: "primary.500",
+      },
     },
   },
 };
