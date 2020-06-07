@@ -14,7 +14,7 @@ export default {
     {
       title: "Text",
       name: "text",
-      type: "simpleText",
+      type: "richText",
     },
     {
       title: "Media",

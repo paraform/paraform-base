@@ -19,6 +19,7 @@ export default function Banner({
         textAlign: "center",
         fontSize: 0,
         px: 5,
+        py: 2,
         background: backgroundGrad
           ? "linear-gradient(270deg, #7cffdd, #ffb578, #cbacff, #acddff, #ffacbe)"
           : null,
@@ -28,7 +29,7 @@ export default function Banner({
           : null,
       }}
     >
-      <RichText content={text} />
+      <RichText variant="caption" content={text} />
     </Flex>
   );
 }

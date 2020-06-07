@@ -27,7 +27,7 @@ export default {
     {
       title: "Subheading",
       name: "subheading",
-      type: "simpleText",
+      type: "richText",
     },
     {
       title: "Media",

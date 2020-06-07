@@ -75,28 +75,36 @@ export default {
     heading1: {
       ...headingStyles,
       fontSize: [5, null, null, 6],
+      mb: 5,
     },
     heading2: {
       ...headingStyles,
       fontSize: [4, 5],
+      mb: 4,
     },
     heading3: {
       ...headingStyles,
       fontSize: [3, 4],
-      // fontWeight: 300,
+      mb: 4,
     },
     heading4: {
       ...headingStyles,
       fontSize: [3],
+      mb: 3,
     },
     heading5: {
       ...headingStyles,
       fontSize: [1, 2],
+      mb: 3,
+    },
+    caption: {
+      fontSize: 0,
+      lineHeight: "body",
     },
     large: {
-      fontSize: 2,
-      lineHeight: "shorter",
-      mt: 0,
+      fontSize: 3,
+      lineHeight: "body",
+      p: 0,
       mb: 4,
     },
   },
@@ -121,6 +129,14 @@ export default {
       color: "text",
       bg: "background",
       lineHeight: "body",
+    },
+    a: {
+      color: "text",
+      cursor: "pointer",
+      textDecoration: "underline",
+      "&:hover": {
+        color: "primary.500",
+      },
     },
   },
 };
