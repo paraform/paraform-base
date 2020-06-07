@@ -17,6 +17,12 @@ export default {
       type: "richText",
     },
     {
+      title: "Overline",
+      description: "A small overline above the title",
+      name: "overline",
+      type: "string",
+    },
+    {
       title: "Media",
       name: "media",
       type: "array",

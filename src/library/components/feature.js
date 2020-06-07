@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { Fragment } from "react";
-import { jsx, Flex, Box, Heading } from "theme-ui";
+import { jsx, Flex, Box, Heading, Text } from "theme-ui";
 import RichText from "./rich-text";
 import Media from "./media";
 
@@ -70,6 +70,9 @@ function Feature(props) {
               }}
             >
               <Box sx={{ maxWidth: 380, margin: "0 auto" }}>
+                {feature.overline ? (
+                  <Text variant="overline">{feature.overline}</Text>
+                ) : null}
                 <Heading as="h3" variant={"heading3"}>
                   {feature.title}
                 </Heading>

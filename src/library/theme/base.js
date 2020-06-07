@@ -101,6 +101,12 @@ export default {
       fontSize: 0,
       lineHeight: "body",
     },
+    overline: {
+      fontSize: 0,
+      lineHeight: "body",
+      textTransform: "uppercase",
+      mb: 3,
+    },
     large: {
       fontSize: 3,
       lineHeight: "body",

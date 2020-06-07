@@ -60,6 +60,7 @@ const featureItem = `
   "featureItem": featureItem[] -> {
     title, 
     text, 
+    overline,
     alt,
     ${media}
   }
