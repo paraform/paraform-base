@@ -7,6 +7,11 @@ export default {
   icon: MdEmail,
   fieldsets: [
     {
+      name: "appearance",
+      title: "Appearance",
+      options: { collapsible: true, collapsed: true },
+    },
+    {
       title: "Email Subscribe",
       name: "subscribe",
       options: { collapsible: true, collapsed: true },
@@ -27,6 +32,7 @@ export default {
       title: "Appearance",
       name: "appearance",
       type: "section",
+      fieldset: "appearance",
     },
     {
       title: "Contact Email",

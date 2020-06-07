@@ -75,6 +75,13 @@ export default {
   name: "featureSection",
   title: "Feature Section",
   icon: MdViewWeek,
+  fieldsets: [
+    {
+      name: "appearance",
+      title: "Appearance",
+      options: { collapsible: true, collapsed: true },
+    },
+  ],
   fields: [
     {
       title: "Heading",
@@ -96,6 +103,7 @@ export default {
       title: "Appearance",
       name: "appearance",
       type: "section",
+      fieldset: "appearance",
     },
   ],
   preview: {
