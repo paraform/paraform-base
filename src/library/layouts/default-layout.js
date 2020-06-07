@@ -23,6 +23,11 @@ export default function Page({
 }) {
   const sections = { ...defaultSections, ...customSections };
   const banner = settings?.banner.show == true;
+  const socials = {
+    instagram: settings?.instagram,
+    twitter: settings?.twitter,
+    facebook: settings?.facebook,
+  };
   const router = useRouter();
   if (!router.isFallback && !data?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -52,6 +57,7 @@ export default function Page({
             colorModeSwitchIcon={colorModeSwitchIcon}
             colorModeSwitch={colorModeSwitch}
             modes={modes}
+            socials={socials}
           />
           <Box>
             {data.content?.map((section, index) => {

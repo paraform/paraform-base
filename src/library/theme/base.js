@@ -19,6 +19,7 @@ const headingStyles = {
 export const defaultColors = {
   black: "#000000",
   white: "#ffffff",
+  whiteAlpha: "rgba(255,255,255,0.5)",
   primary: {
     50: "#ece6ff",
     100: "#c6b3ff",
