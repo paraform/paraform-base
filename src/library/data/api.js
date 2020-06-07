@@ -123,7 +123,10 @@ export async function getPageData(slug) {
       .fetch(
         `*[_type == "settings"]{ 
         "name": name, 
-        "banner": banner 
+        "banner": banner,
+        instagram,
+        twitter,
+        facebook
       }`
       )
       .then((res) => res?.[0]),

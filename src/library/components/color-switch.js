@@ -23,6 +23,9 @@ const ColorSwitch = ({ icon, modes }) => {
         bg: "text",
         alignSelf: "center",
         color: "background",
+        "&:hover": {
+          bg: "primary.500",
+        },
         "&:focus": {
           outline: "none",
           boxShadow: (theme) => `${theme.shadows.outline}`,
