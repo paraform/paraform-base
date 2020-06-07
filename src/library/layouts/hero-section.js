@@ -21,7 +21,7 @@ function HeroSection(props) {
       textColor={appearance?.textColor}
       backgroundColor={appearance?.backgroundColor}
       backgroundGradient={appearance?.backgroundGradient}
-      backgroundVideo={appearance.backgroundVideo}
+      backgroundVideo={appearance?.backgroundVideo}
       spacing={appearance?.spacing}
     >
       <Flex

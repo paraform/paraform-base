@@ -26,12 +26,12 @@ function Section(props) {
         overflow: "hidden",
         width: "100%",
         height: "auto",
+        color: textColor ? textColor : "text",
       }}
     >
       <Box
         sx={{
           bg: backgroundColor ? backgroundColor : "background",
-          color: textColor ? textColor : "text",
           background: backgroundGradient ? backgroundGradient : null,
           position: "absolute",
           zIndex: -1,
