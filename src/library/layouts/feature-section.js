@@ -3,7 +3,7 @@ import { jsx, Flex, Grid, Heading } from "theme-ui";
 import { Section, Feature } from "library";
 
 function FeatureSection(props) {
-  const { features, heading, appearance } = props;
+  const { appearance, features, heading, showHeading } = props;
   return (
     <Section
       textColor={appearance?.textColor}
@@ -21,9 +21,15 @@ function FeatureSection(props) {
           flexDirection: "column",
         }}
       >
-        <Heading as="h2" variant="heading2" sx={{ textAlign: "center", pb: 2 }}>
-          {heading}
-        </Heading>
+        {showHeading ? (
+          <Heading
+            as="h2"
+            variant="heading2"
+            sx={{ textAlign: "center", pb: 2 }}
+          >
+            {heading}
+          </Heading>
+        ) : null}
 
         {features?.map((feature, index) => {
           const layout = feature._type;
