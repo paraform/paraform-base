@@ -130,6 +130,7 @@ export default {
   shadows: {
     outline: "0 0 0 3px rgba(0,0,0, 0.6)",
     buttonHover: "10px 10px 35px -12px rgba(0,0,0,0.57)",
+    inputShadow: "4px 4px 20px -4px rgba(0,0,0,0.5)",
     none: "none",
   },
   styles: {
