@@ -19,7 +19,7 @@ const BlockRenderer = ({ node, children }) => {
   } else if (style === "heading6") {
     return <Heading variant="heading6">{children}</Heading>;
   } else {
-    return <Text>{children}</Text>;
+    return <Text sx={{ mb: 5 }}>{children}</Text>;
   }
 };
 

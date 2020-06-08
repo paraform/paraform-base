@@ -47,7 +47,7 @@ function SubscribeSection(props) {
             {heading}
           </Heading>
           {subheading ? (
-            <Box sx={{ fontSize: [2, null, 3], pb: 5 }}>
+            <Box sx={{ fontSize: [2, null, 3] }}>
               <RichText content={subheading} />
             </Box>
           ) : null}
