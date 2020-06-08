@@ -17,7 +17,7 @@ export default function Banner({
         width: "100%",
         justifyContent: "center",
         textAlign: "center",
-        fontSize: 0,
+        fontWeight: "bold",
         px: 5,
         py: 2,
         background: backgroundGrad
