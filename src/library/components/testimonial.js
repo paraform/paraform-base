@@ -12,10 +12,16 @@ function Testimonial(props) {
           <Flex
             sx={
               layout == "tripleTestimonial"
-                ? { flexDirection: ["column", "row", "column"] }
+                ? {
+                    flexDirection: ["column", "row", "column"],
+                    justifyContent: "center",
+                  }
                 : reversed == true
-                ? { flexDirection: ["column", "row-reverse"] }
-                : { flexDirection: ["column", "row"] }
+                ? {
+                    flexDirection: ["column", "row-reverse"],
+                    justifyContent: "center",
+                  }
+                : { flexDirection: ["column", "row"], justifyContent: "center" }
             }
             key={index}
           >
@@ -29,11 +35,15 @@ function Testimonial(props) {
                 width: ["100%", "50%", "100%"],
                 flexDirection: ["column"],
                 alignSelf: "center",
-                mt: [5, 0],
+                mb: [6, null, 0],
               }}
             >
               <Box
-                sx={{ maxWidth: 380, margin: "0 auto", textAlign: "center" }}
+                sx={{
+                  maxWidth: 380,
+                  margin: "0 auto",
+                  textAlign: "center",
+                }}
               >
                 <Heading
                   as="h3"

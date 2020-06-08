@@ -44,6 +44,7 @@ function TestimonialSection(props) {
               key={index}
             >
               <Testimonial
+                sx={{ justifyContent: "center" }}
                 layout={layout}
                 reversed={reversed}
                 {...testimonial}
