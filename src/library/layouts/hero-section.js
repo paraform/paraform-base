@@ -65,7 +65,7 @@ function HeroSection(props) {
                 {heading}
               </Heading>
               {subheading ? (
-                <Box sx={{ fontSize: [2, null, 3] }}>
+                <Box sx={{ fontSize: [2, null, 3], mb: 4 }}>
                   <RichText variant="large" as="h1" content={subheading} />
                 </Box>
               ) : null}
