@@ -47,8 +47,10 @@ function SubscribeSection(props) {
             {heading}
           </Heading>
           {subheading ? (
-            <Box sx={{ fontSize: [2, null, 3], pb: 5 }}>
-              <RichText content={subheading} />
+            <Box sx={{ fontSize: [2, null, 3] }}>
+              <Box sx={{ mb: 5 }}>
+                <RichText content={subheading} />
+              </Box>
             </Box>
           ) : null}
         </Flex>

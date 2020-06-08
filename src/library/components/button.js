@@ -30,6 +30,8 @@ const flashButton = {
   color: "black",
   ":hover": {
     bg: "grey.800",
+    opacity: 0.7,
+    boxShadow: (theme) => `${theme.shadows.buttonHover}`,
   },
   ":active": {
     bg: "grey.900",

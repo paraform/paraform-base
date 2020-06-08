@@ -128,7 +128,6 @@ export default function Subscribe({
                     flexDirection: ["column", null, "row"],
                     position: "relative",
                     alignItems: "center",
-                    mt: [4, null, null, 2],
                     maxWidth: ["100%", null, "500px"],
                     width: "100%",
                   }}

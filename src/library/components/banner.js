@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Flex } from "theme-ui";
+import { jsx, Flex, Box } from "theme-ui";
 import { keyframes } from "@emotion/core";
 import RichText from "./rich-text";
 
@@ -17,7 +17,6 @@ export default function Banner({
         width: "100%",
         justifyContent: "center",
         textAlign: "center",
-        fontSize: 0,
         px: 5,
         py: 2,
         background: backgroundGrad
@@ -29,7 +28,9 @@ export default function Banner({
           : null,
       }}
     >
-      <RichText variant="caption" content={text} />
+      <Box sx={{ mb: 0 }}>
+        <RichText variant="caption" content={text} />
+      </Box>
     </Flex>
   );
 }

@@ -3,7 +3,7 @@ const BlockContent = require("@sanity/block-content-to-react");
 import { Text, Heading } from "theme-ui";
 import Link from "./link";
 
-const BlockRenderer = ({ node, children }) => {
+const BlockRenderer = ({ node, children, mb }) => {
   const style = node.style || "normal";
 
   if (style === "heading1") {
@@ -30,7 +30,7 @@ const serializers = {
   marks: {
     caption: ({ children }) => <Text variant="caption">{children}</Text>,
     large: ({ children }) => <Text variant="large">{children}</Text>,
-    link: ({ mark, children, ...props }) => {
+    link: ({ mark, children }) => {
       const { newTab, href, external } = mark;
 
       return (
