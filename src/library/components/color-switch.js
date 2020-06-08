@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, IconButton, useColorMode } from "theme-ui";
 
-const ColorSwitch = ({ icon, modes }) => {
+const ColorSwitch = ({ icon, modes, mLeft = 0, mRight = 0 }) => {
   const [mode, setMode] = useColorMode();
 
   const cycleMode = (e) => {
@@ -17,7 +17,8 @@ const ColorSwitch = ({ icon, modes }) => {
       aria-label="Toggle color mode"
       onClick={cycleMode}
       sx={{
-        ml: 2,
+        ml: mLeft,
+        mr: mRight,
         border: 1,
         borderColor: "background",
         bg: "text",

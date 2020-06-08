@@ -1,30 +1,41 @@
 /** @jsx jsx */
-import { jsx, IconButton as BaseIconButton } from "theme-ui";
+import { jsx, Link } from "theme-ui";
 
-const IconButton = ({ icon, link }) => {
+const IconButton = ({ icon, link, newTab, mLeft = 0, mRight = 0 }) => {
   return (
-    <a href={link.toString()}>
-      <BaseIconButton
-        aria-label="Social Link"
-        sx={{
-          ml: 2,
-          border: 1,
-          alignSelf: "center",
-          color: "text",
-          "&:hover": {
-            color: "primary.500",
-          },
-          "&:focus": {
-            bg: "whiteAlpha",
-            outline: "none",
-            boxShadow: (theme) => `${theme.shadows.outline}`,
-            transition: "all 0.2s",
-          },
-        }}
-      >
-        {icon}
-      </BaseIconButton>
-    </a>
+    <Link
+      href={link.toString()}
+      target={newTab ? "_blank" : null}
+      rel={newTab ? "noopener" : null}
+      sx={{
+        boxSizing: "border-box",
+        appearance: "none",
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        p: "4px",
+        width: "32px",
+        height: "32px",
+        color: "text",
+        bg: "transparent",
+        alignSelf: "center",
+        borderRadius: "9999px",
+        border: 1,
+        borderColor: "transparent",
+        ml: mLeft,
+        mr: mRight,
+        "&:hover": {
+          bg: "whiteAlpha",
+        },
+        "&:focus": {
+          outline: "none",
+          boxShadow: (theme) => `${theme.shadows.outline}`,
+          transition: "all 0.2s",
+        },
+      }}
+    >
+      {icon}
+    </Link>
   );
 };
 

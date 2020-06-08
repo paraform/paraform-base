@@ -27,26 +27,31 @@ const Header = ({ colorModeSwitchIcon, logo, modes, socials }) => {
         }}
       >
         {logo}
-        <Box>
+        <Box sx={{ alignSelf: "center" }}>
           {socials.instagram ? (
             <IconButton
+              newTab
               icon={<Instagram />}
               link={`https://www.instagram.com/${socials.instagram}`}
             />
           ) : null}
           {socials.twitter ? (
             <IconButton
+              mLeft={2}
+              newTab
               icon={<Twitter />}
               link={`https://twitter.com/${socials.twitter}`}
             />
           ) : null}
           {socials.facebook ? (
             <IconButton
+              mLeft={2}
+              newTab
               icon={<Facebook />}
               link={`https://facebook.com/${socials.facebook}`}
             />
           ) : null}
-          <ColorSwitch icon={colorModeSwitchIcon} modes={modes} />
+          <ColorSwitch mLeft={4} icon={colorModeSwitchIcon} modes={modes} />
         </Box>
       </Flex>
     </Box>
