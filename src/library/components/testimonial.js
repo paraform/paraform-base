@@ -32,8 +32,15 @@ function Testimonial(props) {
                 mt: [5, 0],
               }}
             >
-              <Box sx={{ maxWidth: 380, margin: "0 auto" }}>
-                <Heading as="h3" variant={"heading5"}>
+              <Box
+                sx={{ maxWidth: 380, margin: "0 auto", textAlign: "center" }}
+              >
+                <Heading
+                  as="h3"
+                  variant={
+                    layout == "tripleTestimonial" ? "heading5" : "heading3"
+                  }
+                >
                   "{testimonial.quote}"
                 </Heading>
                 {testimonial.name ? <Text>{testimonial.name}</Text> : null}
