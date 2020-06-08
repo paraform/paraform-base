@@ -40,14 +40,14 @@ function Section(props) {
           background: backgroundGradient
             ? `linear-gradient(180deg, ${
                 gradientFrom ? gradFrom : " rgba(255,255,255,0)"
-              } 0%,${gradientTo ? gradTo : " rgba(255,255,255,0)"} 90%)`
+              } 5%,${gradientTo ? gradTo : " rgba(255,255,255,0)"} 95%)`
             : null,
           position: "absolute",
           zIndex: -1,
           height: 0,
-          pt: size.width * 0.5625,
+          pt: backgroundVideo ? size.width * 0.5625 : 0,
           minHeight: "100%",
-          pl: size.height * 1.7777,
+          pl: backgroundVideo ? size.height * 1.7777 : 0,
           minWidth: "100%",
           overflow: "hidden",
           left: "50%",
