@@ -64,7 +64,13 @@ function Holder({ children, ...props }) {
   );
 }
 
-export default function Subscribe({ button, input, contactEmail, url }) {
+export default function Subscribe({
+  button,
+  input,
+  contactEmail,
+  url,
+  flashButton,
+}) {
   const emailRef = createRef(undefined);
   return (
     <>
@@ -225,15 +231,27 @@ export default function Subscribe({ button, input, contactEmail, url }) {
                       flexShrink: "0",
                     }}
                   >
-                    <Button
-                      type="submit"
-                      value="subscribe"
-                      solid
-                      large
-                      sx={{ width: ["100%", null, "auto"] }}
-                    >
-                      {button}
-                    </Button>
+                    {flashButton ? (
+                      <Button
+                        type="submit"
+                        value="subscribe"
+                        flash
+                        large
+                        sx={{ width: ["100%", null, "auto"] }}
+                      >
+                        {button}
+                      </Button>
+                    ) : (
+                      <Button
+                        type="submit"
+                        value="subscribe"
+                        solid
+                        large
+                        sx={{ width: ["100%", null, "auto"] }}
+                      >
+                        {button}
+                      </Button>
+                    )}
                   </Box>
                 </Flex>
               );

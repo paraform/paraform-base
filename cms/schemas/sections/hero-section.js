@@ -17,7 +17,6 @@ export default {
       options: { collapsible: true, collapsed: true },
     },
   ],
-
   fields: [
     {
       title: "Heading",
@@ -75,6 +74,13 @@ export default {
       title: "Button Text",
       name: "buttonText",
       type: "string",
+      fieldset: "subscribe",
+    },
+    {
+      title: "Flash Button",
+      name: "flashButton",
+      description: "Add a gradient to teh button for more attention",
+      type: "boolean",
       fieldset: "subscribe",
     },
     {
