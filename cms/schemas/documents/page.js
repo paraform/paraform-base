@@ -35,6 +35,7 @@ export default {
         { type: "heroSection" },
         { type: "featureSection" },
         { type: "subscribeSection" },
+        { type: "dividerSection" },
       ],
     },
     {

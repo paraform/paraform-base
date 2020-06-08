@@ -37,6 +37,15 @@ const appearance = `
  }
 `;
 
+const dividerSection = `
+  _type == 'dividerSection' => {
+    _type, 
+    "shape": shape->data,
+    "topColor": topColor->color.hex,
+    "bottomColor": bottomColor->color.hex
+  }
+`;
+
 const heroSection = `
   _type == 'heroSection' => {
     _type, 
@@ -101,7 +110,8 @@ const sectionQuery = `
   'content': content[] | ({
    ${heroSection},
    ${featureSection},
-   ${subscribeSection}
+   ${subscribeSection}, 
+   ${dividerSection}
   }),
 `;
 

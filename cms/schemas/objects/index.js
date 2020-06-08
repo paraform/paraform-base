@@ -7,3 +7,4 @@ export { default as section } from "./section";
 export { default as colorSwatch } from "./color-swatch";
 export { default as mode } from "./mode";
 export { default as banner } from "./banner";
+export { default as dividerShape } from "./divider-shape";

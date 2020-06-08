@@ -7,6 +7,7 @@ import {
   MdPalette,
   MdInvertColors,
   MdFormatColorFill,
+  MdSignalCellular4Bar,
 } from "react-icons/md";
 import { BsToggleOn } from "react-icons/bs";
 
@@ -31,6 +32,11 @@ export default () =>
                 .icon(MdCollectionsBookmark)
                 .schemaType("feature")
                 .child(S.documentTypeList("feature").title("Features")),
+              S.listItem()
+                .title("Dividers")
+                .icon(MdSignalCellular4Bar)
+                .schemaType("dividerShape")
+                .child(S.documentTypeList("dividerShape").title("Dividers")),
             ])
         ),
       S.divider(),
