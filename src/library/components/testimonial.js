@@ -35,7 +35,7 @@ function Testimonial(props) {
                 width: ["100%", "50%", "100%"],
                 flexDirection: ["column"],
                 alignSelf: "center",
-                mb: [6, null, 0],
+                my: [5, null, 0],
               }}
             >
               <Box
