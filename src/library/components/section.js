@@ -11,11 +11,16 @@ function Section(props) {
   const {
     backgroundColor,
     backgroundGradient,
+    gradientFrom,
+    gradientTo,
     textColor,
     spacing,
     children,
     backgroundVideo,
   } = props;
+
+  const gradTo = `rgba(${gradientTo?.r}, ${gradientTo?.g}, ${gradientTo?.b}, ${gradientTo?.a})`;
+  const gradFrom = `rgba(${gradientFrom?.r}, ${gradientFrom?.g}, ${gradientFrom?.b}, ${gradientFrom?.a})`;
 
   return (
     <Box
@@ -32,7 +37,11 @@ function Section(props) {
       <Box
         sx={{
           bg: backgroundColor ? backgroundColor : "background",
-          background: backgroundGradient ? backgroundGradient : null,
+          background: backgroundGradient
+            ? `linear-gradient(180deg, ${
+                gradientFrom ? gradFrom : " rgba(255,255,255,0)"
+              } 0%,${gradientTo ? gradTo : " rgba(255,255,255,0)"} 90%)`
+            : null,
           position: "absolute",
           zIndex: -1,
           height: 0,

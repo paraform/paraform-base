@@ -32,6 +32,8 @@ const appearance = `
    "backgroundColor": backgroundColor->color.hex,
    "textColor": textColor->color.hex,
    backgroundGradient,
+   "gradientFrom": gradientFrom->color.rgb,
+   "gradientTo": gradientTo->color.rgb,
    backgroundVideo,
    spacing
  }

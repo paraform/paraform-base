@@ -9,7 +9,7 @@ const SVGShape = ({ shape }) => (
 
 const DividerSection = ({
   topColor = "background",
-  bottomColor = "text",
+  bottomColor = "background",
   shape,
 }) => (
   <Box
