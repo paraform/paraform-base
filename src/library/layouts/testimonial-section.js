@@ -16,7 +16,7 @@ function TestimonialSection(props) {
     >
       <Flex
         sx={{
-          maxWidth: "1200px",
+          maxWidth: "2100px",
           margin: "0 auto",
           px: [4, 5],
           width: "100%",
