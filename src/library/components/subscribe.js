@@ -6,15 +6,7 @@ import MailchimpSubscribe from "react-mailchimp-subscribe";
 import { FaCheckCircle, FaExclamationTriangle } from "react-icons/fa";
 
 import Button from "./button";
-
-const loaderAnimation = keyframes`
-0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-`;
+import { animatedGrad } from "./animated-grad";
 
 function Loader() {
   return (
@@ -32,7 +24,7 @@ function Loader() {
           margin: "4px",
           border: "4px solid white",
           borderRadius: "50%",
-          animation: `${loaderAnimation} 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite`,
+          animation: `${animatedGrad} 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite`,
           borderColor: "white transparent transparent transparent",
         },
       }}
@@ -159,7 +151,7 @@ export default function Subscribe({
                         bg: "white",
                         border: (theme) => `1px solid ${theme.colors.text}`,
                         flex: "1",
-                        boxShadow: (theme) => `${theme.shadows.large}`,
+                        boxShadow: (theme) => `${theme.shadows.inputHover}`,
                         outline: "0px",
                         transition:
                           "box-shadow 0.2s ease 0s, color 0.2s ease 0s",
@@ -171,7 +163,6 @@ export default function Subscribe({
                           color: "grey.500",
                         },
                         "&:hover": {
-                          boxShadow: (theme) => `${theme.shadows.large}`,
                           "&::placeholder": {
                             color: "grey.600",
                           },
