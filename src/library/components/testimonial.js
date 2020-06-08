@@ -44,7 +44,7 @@ function Testimonial(props) {
                   width: "100%",
                   margin: "0 auto",
                   textAlign: "center",
-                  px: [5, 0],
+                  px: [3, 0],
                 }}
               >
                 <Heading

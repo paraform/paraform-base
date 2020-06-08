@@ -33,7 +33,7 @@ function SubscribeSection(props) {
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
-          px: [5, 6, 0],
+          px: [3, 6, 0],
         }}
       >
         <Flex
