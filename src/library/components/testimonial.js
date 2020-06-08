@@ -32,7 +32,7 @@ function Testimonial(props) {
                   : ["center", "left", "center"]
               }
               sx={{
-                width: ["100%", "50%", "100%"],
+                width: ["100%"],
                 flexDirection: ["column"],
                 alignSelf: "center",
                 my: [5, null, 0],
@@ -40,13 +40,16 @@ function Testimonial(props) {
             >
               <Box
                 sx={{
-                  maxWidth: 380,
+                  maxWidth: layout == "tripleTestimonial" ? 380 : 860,
+                  width: "100%",
                   margin: "0 auto",
                   textAlign: "center",
+                  px: [5, 0],
                 }}
               >
                 <Heading
                   as="h3"
+                  sx={{ lineHeight: "body" }}
                   variant={
                     layout == "tripleTestimonial" ? "heading5" : "heading3"
                   }
