@@ -7,11 +7,11 @@ function SubscribeSection(props) {
     heading,
     subheading,
     appearance,
-    spacing,
     contactEmail,
     mailchimpUrl,
     buttonText,
     inputText,
+    flashButton,
   } = props;
 
   return (
@@ -55,6 +55,7 @@ function SubscribeSection(props) {
           input={inputText}
           contactEmail={contactEmail}
           url={mailchimpUrl}
+          flashButton={flashButton ? true : null}
         />
       </Flex>
     </Section>

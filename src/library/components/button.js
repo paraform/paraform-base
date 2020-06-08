@@ -1,5 +1,7 @@
 /** @jsx jsx */
 import { jsx, Button as ButtonBase } from "theme-ui";
+import { keyframes } from "@emotion/core";
+import { animatedGrad } from "./animated-grad";
 
 const baseStyles = {
   borderRadius: 2,
@@ -11,6 +13,21 @@ const baseStyles = {
 const solidButton = {
   bg: "text",
   color: "background",
+  ":hover": {
+    bg: "grey.800",
+  },
+  ":active": {
+    bg: "grey.900",
+  },
+};
+
+const flashButton = {
+  bg: "text",
+  background:
+    "linear-gradient(270deg, #7cffdd, #ffb578, #cbacff, #acddff, #ffacbe)",
+  backgroundSize: "1000% 1000%",
+  animation: `${animatedGrad} 30s ease infinite`,
+  color: "text",
   ":hover": {
     bg: "grey.800",
   },
@@ -129,6 +146,7 @@ const Button = ({
   outline,
   link,
   inverse,
+  flash,
   small,
   large,
   disabled,
@@ -147,6 +165,7 @@ const Button = ({
       ...(text && inverse && textButtonInverse),
       ...(link && linkButton),
       ...(link && inverse && linkButtonInverse),
+      ...(flash && flashButton),
       ...focusState,
       ...(disabled && disabledState),
       ...((small && { py: 1 }) || (large && { py: [3, null, null, 4] })),

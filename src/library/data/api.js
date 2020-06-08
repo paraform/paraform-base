@@ -49,6 +49,7 @@ const heroSection = `
     contactEmail,
     mailchimpUrl,
     buttonText,
+    flashButton,
     inputText,
   }
 `;
@@ -91,6 +92,7 @@ const subscribeSection = `
     contactEmail,
     mailchimpUrl,
     buttonText,
+    flashButton,
     inputText,
   }
 `;

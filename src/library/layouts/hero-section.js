@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Box, Flex, Heading } from "theme-ui";
-import { Section, RichText, Media, VideoPlayer, Subscribe } from "library";
+import { Section, RichText, Media, Subscribe } from "library";
 
 function HeroSection(props) {
   const {
@@ -13,6 +13,7 @@ function HeroSection(props) {
     mailchimpUrl,
     buttonText,
     inputText,
+    flashButton,
   } = props;
   const x1 = 750;
   const x2 = 1500;
@@ -72,6 +73,7 @@ function HeroSection(props) {
                   input={inputText}
                   contactEmail={contactEmail}
                   url={mailchimpUrl}
+                  flashButton={flashButton ? true : null}
                 />
               ) : null}
             </Flex>
