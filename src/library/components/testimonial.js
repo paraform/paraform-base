@@ -33,12 +33,10 @@ function Testimonial(props) {
               }}
             >
               <Box sx={{ maxWidth: 380, margin: "0 auto" }}>
-                <Heading as="h3" variant={"heading3"}>
+                <Heading as="h3" variant={"heading5"}>
                   "{testimonial.quote}"
                 </Heading>
-                {testimonial.name ? (
-                  <Text variant="overline">{testimonial.name}</Text>
-                ) : null}
+                {testimonial.name ? <Text>{testimonial.name}</Text> : null}
               </Box>
             </Flex>
           </Flex>
