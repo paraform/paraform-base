@@ -8,3 +8,4 @@ export { default as colorSwatch } from "./color-swatch";
 export { default as mode } from "./mode";
 export { default as banner } from "./banner";
 export { default as dividerShape } from "./divider-shape";
+export { default as testimonial } from "./testimonial";

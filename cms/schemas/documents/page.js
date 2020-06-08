@@ -36,6 +36,7 @@ export default {
         { type: "featureSection" },
         { type: "subscribeSection" },
         { type: "dividerSection" },
+        { type: "testimonialSection" },
       ],
     },
     {

@@ -94,6 +94,31 @@ const featureSection = `
   }
 `;
 
+const testimonialItem = `
+  _type,
+  reversed,
+  "testimonialItem": testimonialItem[] -> {
+    quote, 
+    name, 
+  }
+`;
+
+const testimonialSection = `
+  _type == 'testimonialSection' => {
+    _type, 
+    heading, 
+    ${appearance},
+    "testimonials": testimonials[] | ({
+      _type == 'tripleTestimonial' => {
+        ${testimonialItem}
+      },
+      _type == 'singleTestimonial' => {
+        ${testimonialItem}
+      }
+    }),
+  }
+`;
+
 const subscribeSection = `
   _type == 'subscribeSection' => {
     _type, 
@@ -112,6 +137,7 @@ const sectionQuery = `
   'content': content[] | ({
    ${heroSection},
    ${featureSection},
+   ${testimonialSection},
    ${subscribeSection}, 
    ${dividerSection}
   }),

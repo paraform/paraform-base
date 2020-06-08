@@ -8,6 +8,7 @@ import {
   MdInvertColors,
   MdFormatColorFill,
   MdSignalCellular4Bar,
+  MdFormatQuote,
 } from "react-icons/md";
 import { BsToggleOn } from "react-icons/bs";
 
@@ -32,6 +33,11 @@ export default () =>
                 .icon(MdCollectionsBookmark)
                 .schemaType("feature")
                 .child(S.documentTypeList("feature").title("Features")),
+              S.listItem()
+                .title("Testimonials")
+                .icon(MdFormatQuote)
+                .schemaType("testimonial")
+                .child(S.documentTypeList("testimonial").title("Testimonials")),
               S.listItem()
                 .title("Dividers")
                 .icon(MdSignalCellular4Bar)
