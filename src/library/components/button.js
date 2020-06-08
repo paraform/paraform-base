@@ -27,7 +27,7 @@ const flashButton = {
     "linear-gradient(270deg, #7cffdd, #ffb578, #cbacff, #acddff, #ffacbe)",
   backgroundSize: "1000% 1000%",
   animation: `${animatedGrad} 30s ease infinite`,
-  color: "text",
+  color: "black",
   ":hover": {
     bg: "grey.800",
   },

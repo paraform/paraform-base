@@ -12,7 +12,7 @@ export default function Banner({
   return (
     <Flex
       color={textColor ? textColor : "color"}
-      bg={backgroundColor ? backgroundColor : "text"}
+      bg={backgroundColor ? backgroundColor : "black"}
       sx={{
         width: "100%",
         justifyContent: "center",
