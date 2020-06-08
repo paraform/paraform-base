@@ -32,9 +32,20 @@ const appearance = `
    "backgroundColor": backgroundColor->color.hex,
    "textColor": textColor->color.hex,
    backgroundGradient,
+   "gradientFrom": gradientFrom->color.rgb,
+   "gradientTo": gradientTo->color.rgb,
    backgroundVideo,
    spacing
  }
+`;
+
+const dividerSection = `
+  _type == 'dividerSection' => {
+    _type, 
+    "shape": shape->data,
+    "topColor": topColor->color.hex,
+    "bottomColor": bottomColor->color.hex
+  }
 `;
 
 const heroSection = `
@@ -101,7 +112,8 @@ const sectionQuery = `
   'content': content[] | ({
    ${heroSection},
    ${featureSection},
-   ${subscribeSection}
+   ${subscribeSection}, 
+   ${dividerSection}
   }),
 `;
 

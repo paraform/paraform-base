@@ -19,8 +19,20 @@ export default {
     },
     {
       name: "backgroundGradient",
-      title: "Gradient",
-      type: "string",
+      title: "Background Gradient",
+      type: "boolean",
+    },
+    {
+      name: "gradientFrom",
+      title: "Gradient Start Color",
+      type: "reference",
+      to: [{ type: "backgroundColors" }, { type: "brandColors" }],
+    },
+    {
+      name: "gradientTo",
+      title: "Gradient End Color",
+      type: "reference",
+      to: [{ type: "backgroundColors" }, { type: "brandColors" }],
     },
     {
       name: "backgroundVideo",

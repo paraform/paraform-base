@@ -14,6 +14,7 @@ const headingStyles = {
   lineHeight: "heading",
   letterSpacing: "tight",
   mt: 0,
+  fontWeight: "bold",
 };
 
 export const defaultColors = {
