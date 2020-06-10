@@ -1,20 +1,12 @@
 /** @jsx jsx */
-import { jsx, Flex, Box, Input, Text, Label } from "theme-ui";
+import { jsx, Flex, Box, Text, Label } from "theme-ui";
 import { createRef } from "react";
-import { keyframes } from "@emotion/core";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 import { FaCheckCircle, FaExclamationTriangle } from "react-icons/fa";
+import { rotate360 } from "./animations";
 
 import Button from "./button";
-
-const loaderAnimation = keyframes`
-0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-`;
+import Input from "./input";
 
 function Loader() {
   return (
@@ -30,10 +22,11 @@ function Loader() {
           width: "24px",
           height: "24px",
           margin: "4px",
-          border: "4px solid white",
+          border: "4px solid background",
           borderRadius: "50%",
-          animation: `${loaderAnimation} 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite`,
-          borderColor: "white transparent transparent transparent",
+          animation: `${rotate360} 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite`,
+          borderColor: (theme) =>
+            `${theme.colors.background} transparent transparent transparent`,
         },
       }}
     >
@@ -47,20 +40,22 @@ function Loader() {
 
 function Holder({ children, ...props }) {
   return (
-    <Flex
+    <Box
       sx={{
+        display: "inline-flex",
+        alignContent: "center",
         bg: "text",
         color: "background",
-        my: [5, null, null, 6],
-        ml: [0, 3],
+        mt: 4,
+        mb: 3,
         p: 3,
         borderRadius: 4,
         flexDirection: "row",
+        flexWrap: "wrap",
       }}
-      {...props}
     >
       {children}
-    </Flex>
+    </Box>
   );
 }
 
@@ -80,42 +75,58 @@ export default function Subscribe({
           switch (status) {
             case "sending":
               return (
-                <Holder>
-                  <Loader />
-                  <Box
-                    sx={{ position: "relative", px: 3, alignSelf: "center" }}
-                  >
-                    <Text>Adding you now...</Text>
-                  </Box>
-                </Holder>
+                <Box sx={{ display: "inline-flex" }}>
+                  <Holder>
+                    <Loader />
+                    <Box
+                      sx={{ position: "relative", px: 3, alignSelf: "center" }}
+                    >
+                      <Text>Adding you now...</Text>
+                    </Box>
+                  </Holder>
+                </Box>
               );
             case "success":
               return (
-                <Holder>
-                  <FaCheckCircle
-                    sx={{ width: 24, height: 24, color: "white" }}
-                  />
-                  <Box
-                    sx={{ position: "relative", px: 3, alignSelf: "center" }}
-                  >
-                    <Text>You are on the list. Thank You!</Text>
-                  </Box>
-                </Holder>
-              );
-            case "error":
-              return (
-                <>
+                <Box sx={{ display: "inline-flex" }}>
                   <Holder>
-                    <FaExclamationTriangle
-                      sx={{ width: 24, height: 24, color: "white" }}
+                    <FaCheckCircle
+                      sx={{ width: 24, height: 24, color: "background" }}
                     />
                     <Box
                       sx={{ position: "relative", px: 3, alignSelf: "center" }}
                     >
-                      <Text>Something went wrong!</Text>
+                      <Text>You are on the list. Thank You!</Text>
                     </Box>
                   </Holder>
-                  <Text>
+                </Box>
+              );
+            case "error":
+              return (
+                <>
+                  <Box sx={{ display: "inline-flex" }}>
+                    <Holder>
+                      <FaExclamationTriangle
+                        sx={{
+                          width: 24,
+                          height: 24,
+                          color: "background",
+                        }}
+                      />
+                      <Box
+                        sx={{
+                          position: "relative",
+                          px: 3,
+                          alignSelf: "center",
+                        }}
+                      >
+                        <Text sx={{ color: "background" }}>
+                          Something went wrong!
+                        </Text>
+                      </Box>
+                    </Holder>
+                  </Box>
+                  <Text variant="caption">
                     Contact {contactEmail} and we will add you to the list!
                   </Text>
                 </>
@@ -154,35 +165,6 @@ export default function Subscribe({
                       placeholder={input}
                       type="email"
                       ref={emailRef}
-                      sx={{
-                        color: "black",
-                        bg: "white",
-                        border: (theme) => `1px solid ${theme.colors.text}`,
-                        flex: "1",
-                        boxShadow: (theme) => `${theme.shadows.large}`,
-                        outline: "0px",
-                        transition:
-                          "box-shadow 0.2s ease 0s, color 0.2s ease 0s",
-                        border: "none",
-                        borderRadius: 2,
-                        py: [3, null, null, 4],
-                        pl: 4,
-                        "&::placeholder": {
-                          color: "grey.500",
-                        },
-                        "&:hover": {
-                          boxShadow: (theme) => `${theme.shadows.large}`,
-                          "&::placeholder": {
-                            color: "grey.600",
-                          },
-                        },
-                        "&:focus": {
-                          "&::placeholder": {
-                            color: "grey.400",
-                          },
-                          outline: "none",
-                        },
-                      }}
                     />
                     <span
                       sx={{

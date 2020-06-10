@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx, Button as ButtonBase } from "theme-ui";
-import { keyframes } from "@emotion/core";
-import { animatedGrad } from "./animated-grad";
+import { backAndForth } from "./animations";
 
 const baseStyles = {
   borderRadius: 2,
@@ -26,7 +25,7 @@ const flashButton = {
   background:
     "linear-gradient(270deg, #7cffdd, #ffb578, #cbacff, #acddff, #ffacbe)",
   backgroundSize: "1000% 1000%",
-  animation: `${animatedGrad} 30s ease infinite`,
+  animation: `${backAndForth} 30s ease infinite`,
   color: "black",
   ":hover": {
     bg: "grey.800",
