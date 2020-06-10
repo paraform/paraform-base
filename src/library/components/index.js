@@ -3,7 +3,6 @@ export { default as Banner } from "./banner";
 export { default as Feature } from "./feature";
 export { default as Header } from "./header";
 export { default as IconButton } from "./icon-button";
-export { default as Input } from "./input";
 export { default as Lottie } from "./lottie";
 export { default as Media } from "./media";
 export { default as Meta } from "./meta";
