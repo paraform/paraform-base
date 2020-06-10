@@ -12,6 +12,11 @@ export default {
       name: "socialLinks",
       options: { collapsible: true, collapsed: true },
     },
+    {
+      title: "Meta",
+      name: "metadata",
+      options: { collapsible: true, collapsed: true },
+    },
   ],
   fields: [
     {
@@ -24,6 +29,14 @@ export default {
       name: "banner",
       type: "banner",
       description: "Set a banner for alerting users to something new.",
+    },
+    {
+      name: "ogImage",
+      type: "image",
+      title: "OG Image",
+      description:
+        "This image is used for when the page is linked in social media and texts",
+      fieldset: "metadata",
     },
     {
       title: "Instagram",

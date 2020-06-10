@@ -3,9 +3,8 @@ import { Fragment } from "react";
 import { jsx, Box } from "theme-ui";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import Head from "next/head";
 import * as defaultSections from ".";
-import { Header, Banner } from "../components";
+import { Header, Banner, Meta } from "../components";
 
 const modelToViewName = (modelName) =>
   modelName.replace(/^([a-z])/, (first) => first.toUpperCase());
@@ -36,12 +35,19 @@ export default function Page({
   console.log(data);
   return (
     <Fragment>
-      <Head>
-        <title>
-          {data?.title} | {settings?.name}
-        </title>
-        <meta name="description" content={data?.description} />
-      </Head>
+      <Meta
+        title={
+          data?.title
+            ? data.title
+            : "Welcome" | settings?.name
+            ? settings.name
+            : null
+        }
+        description={data?.description}
+        image={data?.ogImage ? data.ogImage : settings?.ogImage}
+        url={`https://inlights.app/${data?.slug}`}
+        name={settings?.name}
+      />
       {router.isFallback ? (
         <p>Loading…</p>
       ) : (

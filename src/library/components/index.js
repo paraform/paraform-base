@@ -9,3 +9,4 @@ export { default as IconButton } from "./icon-button";
 export { default as Header } from "./header";
 export { default as Subscribe } from "./subscribe";
 export { default as VideoPlayer } from "./video-player";
+export { default as Meta } from "./meta";

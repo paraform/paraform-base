@@ -46,6 +46,14 @@ export default {
       description: "This description populates meta-tags on the webpage",
       fieldset: "metadata",
     },
+    {
+      name: "ogImage",
+      type: "image",
+      title: "OG Image",
+      description:
+        "This image is used for when the page is linked in social media and texts",
+      fieldset: "metadata",
+    },
   ],
   preview: {
     select: {
