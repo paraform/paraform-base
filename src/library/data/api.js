@@ -4,7 +4,8 @@ const pageQuery = `
   name,
   title,
   description,
-  'slug': slug.current
+  'slug': slug.current,
+  "ogImage": ogImage.asset->url
 `;
 
 const image = `
@@ -164,6 +165,7 @@ export async function getPageData(slug) {
         `*[_type == "settings"]{ 
         "name": name, 
         "banner": banner,
+        "ogImage": ogImage.asset->url,
         instagram,
         twitter,
         facebook
