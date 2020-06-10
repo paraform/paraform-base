@@ -1,12 +1,11 @@
 /** @jsx jsx */
-import { jsx, Flex, Box, Text, Label } from "theme-ui";
+import { jsx, Flex, Box, Text, Label, Input } from "theme-ui";
 import { createRef } from "react";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 import { FaCheckCircle, FaExclamationTriangle } from "react-icons/fa";
 import { rotate360 } from "./animations";
 
 import Button from "./button";
-import Input from "./input";
 
 function Loader() {
   return (
@@ -165,6 +164,35 @@ export default function Subscribe({
                       placeholder={input}
                       type="email"
                       ref={emailRef}
+                      sx={{
+                        color: "black",
+                        bg: "white",
+                        border: (theme) => `1px solid ${theme.colors.text}`,
+                        flex: "1",
+                        boxShadow: (theme) => `${theme.shadows.large}`,
+                        outline: "0px",
+                        transition:
+                          "box-shadow 0.2s ease 0s, color 0.2s ease 0s",
+                        border: "none",
+                        borderRadius: 2,
+                        py: [3, null, null, 4],
+                        pl: 4,
+                        "&::placeholder": {
+                          color: "grey.500",
+                        },
+                        "&:hover": {
+                          boxShadow: (theme) => `${theme.shadows.large}`,
+                          "&::placeholder": {
+                            color: "grey.600",
+                          },
+                        },
+                        "&:focus": {
+                          "&::placeholder": {
+                            color: "grey.400",
+                          },
+                          outline: "none",
+                        },
+                      }}
                     />
                     <span
                       sx={{
