@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, Flex, Box } from "theme-ui";
-import { keyframes } from "@emotion/core";
 import RichText from "./rich-text";
+import { backAndForth } from "./animations";
 
 export default function Banner({
   text,
@@ -23,9 +23,7 @@ export default function Banner({
           ? "linear-gradient(270deg, #7cffdd, #ffb578, #cbacff, #acddff, #ffacbe)"
           : null,
         backgroundSize: backgroundGrad ? "1000% 1000%" : null,
-        animation: backgroundGrad
-          ? `${gradientAnimation} 30s ease infinite`
-          : null,
+        animation: backgroundGrad ? `${backAndForth} 30s ease infinite` : null,
       }}
     >
       <Box sx={{ mb: 0 }}>
@@ -34,9 +32,3 @@ export default function Banner({
     </Flex>
   );
 }
-
-const gradientAnimation = keyframes`
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-`;
