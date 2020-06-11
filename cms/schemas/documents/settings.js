@@ -1,5 +1,4 @@
 import { MdSettings } from "react-icons/md";
-import { FaInstagram } from "react-icons/fa";
 
 export default {
   name: "settings",
